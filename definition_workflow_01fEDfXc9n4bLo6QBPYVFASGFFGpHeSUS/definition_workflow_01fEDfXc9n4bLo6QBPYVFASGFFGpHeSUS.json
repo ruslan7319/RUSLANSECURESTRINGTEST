@@ -1,0 +1,110 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01fEDfXc9n4bLo6QBPYVFASGFFGpHeSUS",
+    "name": "CC-add -RUSLAN",
+    "title": "CC-add -RUSLAN",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "1BU8Xe7uoRL9sRnq1qj8aP1GQca",
+        "properties": {
+          "scope": "local",
+          "name": "acc_key",
+          "type": "datatype.secure_string"
+        },
+        "unique_name": "variable_workflow_01fEdHwEkLUnAXs9w32QevMgUIIn91vno",
+        "object_type": ""
+      },
+      {
+        "schema_id": "1BU8Xe7uoRL9sRnq1qj8aP1GQca",
+        "properties": {
+          "scope": "local",
+          "name": "sec_key",
+          "type": "datatype.secure_string"
+        },
+        "unique_name": "variable_workflow_01fEdjwi1QPswS5iRRYP7dCzLkVu6xeRY",
+        "object_type": ""
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "CC-add -RUSLAN",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01fEDg67l1LH9MJmLuhxSZYIuPtc64Fdq",
+        "name": "Add Cloud Account",
+        "title": "Add Cloud Account",
+        "type": "ccs.add_cloud_account",
+        "base_type": "activity",
+        "properties": {
+          "access_key": "$workflow.definition_workflow_01fEDfXc9n4bLo6QBPYVFASGFFGpHeSUS.local.variable_workflow_01fEdHwEkLUnAXs9w32QevMgUIIn91vno$",
+          "action_timeout": 180,
+          "aws_account_number": "290792058377",
+          "aws_cloud_name": "neeta3",
+          "aws_email": "nedsilva@cisco.com",
+          "cloud_family": "Amazon",
+          "cloud_instance": "1",
+          "continue_on_failure": false,
+          "display_name": "Add Cloud Account",
+          "kube_account_token": false,
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "secret_key": "$workflow.definition_workflow_01fEDfXc9n4bLo6QBPYVFASGFFGpHeSUS.local.variable_workflow_01fEdjwi1QPswS5iRRYP7dCzLkVu6xeRY$",
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01fcIWot3E5wP1TwNEqjsySIwo00utpkp"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01fcIWot3E5wP1TwNEqjsySIwo00utpkp": {
+      "unique_name": "definition_target_01fcIWot3E5wP1TwNEqjsySIwo00utpkp",
+      "name": "ND-CCtar",
+      "title": "ND-CCtar",
+      "type": "ccsuite.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01fcIV9H7OwpZDUmivu3cOieqHehrFZub",
+        "disable_certificate_validation": false,
+        "display_name": "ND-CCtar",
+        "host": "ccs-qa.cliqrtech.com",
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01fcIV9H7OwpZDUmivu3cOieqHehrFZub": {
+      "unique_name": "definition_runtime_user_01fcIV9H7OwpZDUmivu3cOieqHehrFZub",
+      "name": "ND-CCUser",
+      "title": "ND-CCUser",
+      "type": "runtime_user.ccs_explicit_user",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "ND-CCUser"
+      }
+    }
+  }
+}
