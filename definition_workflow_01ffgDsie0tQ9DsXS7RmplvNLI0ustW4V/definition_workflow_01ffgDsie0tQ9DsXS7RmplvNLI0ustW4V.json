@@ -1,0 +1,90 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01ffgDsie0tQ9DsXS7RmplvNLI0ustW4V",
+    "name": "ParentRuslan",
+    "title": "ParentRuslan",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "ParentRuslan",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01ffgebqyW3gK82LFLLhyfZpTWoTDIX6O",
+        "name": "MynewRUslan",
+        "title": "MynewRUslan",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "MynewRUslan",
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01fe5aMJSpq2oU7DKehYKOsltOUtGHjgN"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01fe5aMJSpq2oU7DKehYKOsltOUtGHjgN",
+        "name": "MynewRUslan",
+        "title": "MynewRUslan",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "MynewRUslan",
+          "favorite": false,
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01ffgavvscLdxm6mi6Lk2EJ9pbXn5izzE",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "sleep_interval": 1
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
