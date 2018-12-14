@@ -5,7 +5,108 @@
     "title": "RuslanKAFKATEST",
     "type": "generic.workflow",
     "base_type": "workflow",
-    "variables": null,
+    "variables": [
+      {
+        "schema_id": "1BU8Xe7uoRL9sRnq1qj8aP1GQca",
+        "properties": {
+          "scope": "input",
+          "name": "SecureInput",
+          "type": "datatype.secure_string"
+        },
+        "unique_name": "variable_workflow_01ffYYyKqF46ovKlflIe2YDVXXJdINrYz",
+        "object_type": ""
+      },
+      {
+        "schema_id": "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Number": 1,
+                "String": "1"
+              }
+            },
+            {
+              "column_data": {
+                "Number": 2,
+                "String": "2"
+              }
+            },
+            {
+              "column_data": {
+                "Number": 3,
+                "String": "3"
+              }
+            },
+            {
+              "column_data": {
+                "Number": 4,
+                "String": "4"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "Local Table",
+          "type": "datatype.table"
+        },
+        "unique_name": "variable_workflow_01ffx1JhHm6DfTfIjCD2sY2qDBlovrY75",
+        "object_type": ""
+      },
+      {
+        "schema_id": "1BU8XPbIb4QGH2xVEhKFRkipTQW",
+        "properties": {
+          "value": true,
+          "scope": "local",
+          "name": "LocalTrue",
+          "type": "datatype.boolean"
+        },
+        "unique_name": "variable_workflow_01ffxIIiLD6ffbVPQEWKfpdCIiy7iDtVO",
+        "object_type": ""
+      },
+      {
+        "schema_id": "1BU8XUrsxkbAfxRxUpjeiiqPRQV",
+        "properties": {
+          "value": 121,
+          "scope": "static",
+          "name": "LocalDecimal",
+          "type": "datatype.number"
+        },
+        "unique_name": "variable_workflow_01ffxKSxyneIpwouhL9cqNZgaMlwya9Tk",
+        "object_type": ""
+      },
+      {
+        "schema_id": "1BU8XORCVLlHpV7AcoTEwlOy5Du",
+        "properties": {
+          "value": "2018-10-30T15:04:39.244401871Z",
+          "scope": "local",
+          "name": "Date",
+          "type": "datatype.date"
+        },
+        "unique_name": "variable_workflow_01ffxgwQAv00yxC3hHI6soLdCpSSxSBOx",
+        "object_type": ""
+      },
+      {
+        "schema_id": "1BU8XUBtnBgWzpKEIrm9zRxTkLQ",
+        "properties": {
+          "scope": "output",
+          "name": "LocalInteger",
+          "type": "datatype.integer"
+        },
+        "unique_name": "variable_workflow_01ffxlyfbVk9VziCfca2hk4CtlszIwP2k",
+        "object_type": ""
+      },
+      {
+        "schema_id": "1BU8Xf2pq4RlP62YADgAlFIr6Yr",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "MyString",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_01ffy2Yr3A52wWOe0C5jX6gve09t1agmO",
+        "object_type": ""
+      }
+    ],
     "properties": {
       "atomic": {
         "is_atomic": false
@@ -14,9 +115,24 @@
       "display_name": "RuslanKAFKATEST",
       "favorite": false,
       "target": {
-        "target_type": "kafka.endpoint",
-        "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
-        "execute_on_workflow_target": true
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_1C1fyDWwgeVubyDH1OijpGHwMD6",
+          "run_on_all_targets": false,
+          "selected_target_types": [
+            "kafka.endpoint"
+          ],
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "ne",
+                "left_operand": "$targetgroup.kafka endpoint.input.description$",
+                "right_operand": "test"
+              }
+            ]
+          }
+        }
       }
     },
     "object_type": "definition_workflow",
@@ -50,14 +166,43 @@
             "target_default": true
           },
           "target": {
-            "override_workflow_target": false,
             "override_workflow_target_group_criteria": false,
-            "use_workflow_target": true,
-            "use_workflow_target_group": false
+            "use_workflow_target_group": true
           },
           "topic": "my topic"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01fG4M5mobp86qPAYv2tGKd9Tl4BUJ58f",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block"
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01fG4M803Ra9FGd0P3aHq2xtw22xHmGb8",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01ffk2GqTvEp0WDikFElXaXp6sZ7w9w3I.local.variable_workflow_01ffxgwQAv00yxC3hHI6soLdCpSSxSBOx$",
+                "operator": "ne",
+                "right_operand": "$global.variable_1BVZeGHOItt7q0cQSrHIa1mx5WS.global.variable_1BVZeGHOItt7q0cQSrHIa1mx5WS[-1].string $"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
       }
     ],
     "categories": [
@@ -77,6 +222,19 @@
       "disabled": false,
       "unique_name": "triggerevent_01ffkHvqDTzrRIvyIVQQwOolwX0WGIdCb",
       "object_type": "triggerevent"
+    },
+    "triggerschedule_01ffXXoYqS0mix24yI00LfMZPhnMNrJhy": {
+      "workflow_id": "definition_workflow_01ffk2GqTvEp0WDikFElXaXp6sZ7w9w3I",
+      "name": "Scheduler",
+      "title": "",
+      "lowercase_name": "schedule.scheduler",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01KtPq0jYiPgLcUBRCV9qWb7rtDgQcLKi",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01ffXXoYqS0mix24yI00LfMZPhnMNrJhy",
+      "object_type": "triggerschedule"
     }
   },
   "events": {
@@ -96,6 +254,26 @@
       "unique_name": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI"
     }
   },
+  "schedules": {
+    "schedule_01KtPq0jYiPgLcUBRCV9qWb7rtDgQcLKi": {
+      "unique_name": "schedule_01KtPq0jYiPgLcUBRCV9qWb7rtDgQcLKi",
+      "name": "New Daily schedule",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "Etc/GMT+0",
+        "starttime": "09:25",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "New Daily schedule",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
   "targets": {
     "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2": {
       "unique_name": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
@@ -112,6 +290,134 @@
         "port": 9092,
         "ssl_enable": false
       }
+    }
+  },
+  "target_groups": {
+    "target_group_1C1fyDWwgeVubyDH1OijpGHwMD6": {
+      "unique_name": "target_group_1C1fyDWwgeVubyDH1OijpGHwMD6",
+      "name": "RuslanTargetGroup",
+      "title": "RuslanTargetGroup",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "left_operand": "$input.description$",
+              "operator": "eq",
+              "right_operand": "RUSLAN"
+            }
+          ]
+        },
+        {
+          "data_target_type": "kafka.endpoint",
+          "view_target_type": "kafka.endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
+  "variables": {
+    "variable_1BVZeGHOItt7q0cQSrHIa1mx5WS": {
+      "unique_name": "variable_1BVZeGHOItt7q0cQSrHIa1mx5WS",
+      "schema_id": "tabletype_1BVZ7h0am8t46Yh5QNbIp81izWS",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "decimal ": 1.2,
+              "number ": 8,
+              "string ": "def"
+            }
+          },
+          {
+            "column_data": {
+              "decimal ": 1.1,
+              "number ": 9,
+              "string ": "abc"
+            }
+          },
+          {
+            "column_data": {
+              "decimal ": 2.2,
+              "number ": 7,
+              "string ": "dfgdfgfg"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "bintestspacetable",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_1BVZ7h0am8t46Yh5QNbIp81izWS": {
+      "unique_name": "tabletype_1BVZ7h0am8t46Yh5QNbIp81izWS",
+      "data_type": "datatype.tabletype",
+      "display_name": "bintestspace",
+      "description": "bintestspace",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "maximum": 10,
+          "minimum": 1,
+          "name": "decimal ",
+          "title": "decimal ",
+          "type": "number"
+        },
+        {
+          "maximum": 10,
+          "minimum": 1,
+          "name": "number ",
+          "title": "number ",
+          "type": "integer"
+        },
+        {
+          "maxLength": 20,
+          "name": "string ",
+          "title": "string ",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi": {
+      "unique_name": "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSLANLATESTTABLETYPE",
+      "description": "RUSLANLATESTTABLETYPE",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "maximum": 20,
+          "minimum": 1,
+          "name": "Number",
+          "title": "Number",
+          "type": "integer"
+        },
+        {
+          "maxLength": 20,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
     }
   }
 }
