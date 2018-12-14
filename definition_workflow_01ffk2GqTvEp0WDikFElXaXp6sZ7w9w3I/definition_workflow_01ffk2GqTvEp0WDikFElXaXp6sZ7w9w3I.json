@@ -1,0 +1,60 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01ffk2GqTvEp0WDikFElXaXp6sZ7w9w3I",
+    "name": "RuslanKAFKATEST",
+    "title": "RuslanKAFKATEST",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RuslanKAFKATEST",
+      "favorite": false,
+      "target": {
+        "target_type": "kafka.endpoint",
+        "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01ffk55cmFNSkaelORuiF1I5yvHgDbBH2",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2": {
+      "unique_name": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "name": "RUSLAN-INTERNALKAFKA",
+      "title": "RUSLAN-INTERNALKAFKA",
+      "type": "kafka.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "RUSLAN-INTERNALKAFKA",
+        "host": "10.111.54.53",
+        "no_runtime_user": true,
+        "port": 9092,
+        "ssl_enable": false
+      }
+    }
+  }
+}
