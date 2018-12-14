@@ -39,6 +39,38 @@
       "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
     ]
   },
+  "triggers": {
+    "triggerevent_01ffkHvqDTzrRIvyIVQQwOolwX0WGIdCb": {
+      "workflow_id": "definition_workflow_01ffk2GqTvEp0WDikFElXaXp6sZ7w9w3I",
+      "name": "KAFKA TRIGGER",
+      "title": "",
+      "lowercase_name": "event.kafka_trigger",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerevent_01ffkHvqDTzrRIvyIVQQwOolwX0WGIdCb",
+      "object_type": "triggerevent"
+    }
+  },
+  "events": {
+    "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI": {
+      "name": "RUSLANKAFKAEVENT",
+      "title": "RUSLANKAFKAEVENT",
+      "type": "kafka.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "version": "1.0.0",
+      "properties": {
+        "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+        "title": "RUSLANKAFKAEVENT",
+        "topic_name": "mytopic"
+      },
+      "unique_name": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI"
+    }
+  },
   "targets": {
     "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2": {
       "unique_name": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
