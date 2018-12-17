@@ -42,6 +42,40 @@
           "workflow_id": "definition_workflow_01ffk2GqTvEp0WDikFElXaXp6sZ7w9w3I"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01fkbeUHJBVFNEmrVXx9vCo0MRUHKTRMk",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "source_array": "$global.variable_1C5MuYHh5i3g31HfGFG8AGIGfpK.global.variable_1C5MuYHh5i3g31HfGFG8AGIGfpK$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01fkbVFHIacqbRmwXb04C1lvr6sRkWsOi",
+            "name": "Replace String",
+            "title": "Replace String",
+            "type": "core.replacestring",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Replace String",
+              "input_string": "$global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J.global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J$",
+              "replace_list": [
+                {
+                  "replaced_string": "$global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J.global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J$",
+                  "replacement_string": "$activity.definition_activity_01fk4UOefI95nUaf4aSIDX3S5Jnr5IF6C.output.variable_workflow_01ffxlyfbVk9VziCfca2hk4CtlszIwP2k$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ]
       }
     ],
     "categories": [
@@ -194,6 +228,67 @@
         "type": "datatype.table"
       },
       "object_type": "variable"
+    },
+    "variable_1C5MuYHh5i3g31HfGFG8AGIGfpK": {
+      "unique_name": "variable_1C5MuYHh5i3g31HfGFG8AGIGfpK",
+      "schema_id": "tabletype_1C5K4AQwMPgypWOP5s9tVDTb1QM",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "decimal ": 1.2,
+              "number ": 8,
+              "string ": "def"
+            }
+          },
+          {
+            "column_data": {
+              "decimal ": 1.1,
+              "number ": 9,
+              "string ": "abc"
+            }
+          },
+          {
+            "column_data": {
+              "decimal ": 2.2,
+              "number ": 7,
+              "string ": "dfgdfgfg"
+            }
+          },
+          {
+            "column_data": {
+              "Number": 3,
+              "String": "121212"
+            }
+          },
+          {
+            "column_data": {
+              "Number": 2,
+              "String": "fdsfdsfasdf"
+            }
+          },
+          {
+            "column_data": {
+              "Number": 1,
+              "String": "fdsfsdfasd"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "RUSLANGLOBALTABLE",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    },
+    "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J": {
+      "unique_name": "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J",
+      "properties": {
+        "value": -20,
+        "scope": "global",
+        "name": "-12",
+        "type": "datatype.integer"
+      },
+      "object_type": "variable"
     }
   },
   "table_types": {
@@ -231,6 +326,32 @@
       "base_type": "datatype",
       "object_type": "tabletype"
     },
+    "tabletype_1C5K4AQwMPgypWOP5s9tVDTb1QM": {
+      "unique_name": "tabletype_1C5K4AQwMPgypWOP5s9tVDTb1QM",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSLANTABLETYPE1",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "maxLength": 30,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        },
+        {
+          "maximum": 20,
+          "minimum": 1,
+          "name": "Number",
+          "title": "Number",
+          "type": "integer"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
     "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi": {
       "unique_name": "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi",
       "data_type": "datatype.tabletype",
@@ -242,17 +363,17 @@
       "max_table_size": 26000,
       "columns": [
         {
-          "maxLength": 20,
-          "name": "String",
-          "title": "String",
-          "type": "string"
-        },
-        {
           "maximum": 20,
           "minimum": 1,
           "name": "Number",
           "title": "Number",
           "type": "integer"
+        },
+        {
+          "maxLength": 20,
+          "name": "String",
+          "title": "String",
+          "type": "string"
         }
       ],
       "base_type": "datatype",
@@ -268,38 +389,6 @@
         "type": "generic.workflow",
         "base_type": "workflow",
         "variables": [
-          {
-            "schema_id": "1BU8XUrsxkbAfxRxUpjeiiqPRQV",
-            "properties": {
-              "value": 121,
-              "scope": "static",
-              "name": "LocalDecimal",
-              "type": "datatype.number"
-            },
-            "unique_name": "variable_workflow_01ffxKSxyneIpwouhL9cqNZgaMlwya9Tk",
-            "object_type": ""
-          },
-          {
-            "schema_id": "1BU8XORCVLlHpV7AcoTEwlOy5Du",
-            "properties": {
-              "value": "2018-10-30T15:04:39.244401871Z",
-              "scope": "local",
-              "name": "Date",
-              "type": "datatype.date"
-            },
-            "unique_name": "variable_workflow_01ffxgwQAv00yxC3hHI6soLdCpSSxSBOx",
-            "object_type": ""
-          },
-          {
-            "schema_id": "1BU8Xe7uoRL9sRnq1qj8aP1GQca",
-            "properties": {
-              "scope": "input",
-              "name": "SecureInput",
-              "type": "datatype.secure_string"
-            },
-            "unique_name": "variable_workflow_01ffYYyKqF46ovKlflIe2YDVXXJdINrYz",
-            "object_type": ""
-          },
           {
             "schema_id": "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi",
             "properties": {
@@ -366,6 +455,38 @@
               "type": "datatype.boolean"
             },
             "unique_name": "variable_workflow_01ffxIIiLD6ffbVPQEWKfpdCIiy7iDtVO",
+            "object_type": ""
+          },
+          {
+            "schema_id": "1BU8XUrsxkbAfxRxUpjeiiqPRQV",
+            "properties": {
+              "value": 121,
+              "scope": "static",
+              "name": "LocalDecimal",
+              "type": "datatype.number"
+            },
+            "unique_name": "variable_workflow_01ffxKSxyneIpwouhL9cqNZgaMlwya9Tk",
+            "object_type": ""
+          },
+          {
+            "schema_id": "1BU8XORCVLlHpV7AcoTEwlOy5Du",
+            "properties": {
+              "value": "2018-10-30T15:04:39.244401871Z",
+              "scope": "local",
+              "name": "Date",
+              "type": "datatype.date"
+            },
+            "unique_name": "variable_workflow_01ffxgwQAv00yxC3hHI6soLdCpSSxSBOx",
+            "object_type": ""
+          },
+          {
+            "schema_id": "1BU8Xe7uoRL9sRnq1qj8aP1GQca",
+            "properties": {
+              "scope": "input",
+              "name": "SecureInput",
+              "type": "datatype.secure_string"
+            },
+            "unique_name": "variable_workflow_01ffYYyKqF46ovKlflIe2YDVXXJdINrYz",
             "object_type": ""
           }
         ],
@@ -462,7 +583,31 @@
                   "continue_on_failure": false,
                   "display_name": "Condition Branch"
                 },
-                "object_type": "definition_activity"
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01fkCarm9LmWG4R7kfzjv1JYNDWRihqAL",
+                    "name": "Submit Kafka Message",
+                    "title": "Submit Kafka Message",
+                    "type": "kafka.submitmessage",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Submit Kafka Message",
+                      "message": "12121212",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "target": {
+                        "use_workflow_target_group": true
+                      },
+                      "topic": "32232"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
               }
             ]
           }
