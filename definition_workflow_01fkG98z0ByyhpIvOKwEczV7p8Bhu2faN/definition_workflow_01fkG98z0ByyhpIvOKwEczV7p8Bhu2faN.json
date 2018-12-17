@@ -42,6 +42,40 @@
           "workflow_id": "01fkfrnEpVxVcF3GgJqZV7xLVLbZ1iqsn"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01fkGHbDd35gvrL2WIiHG7HGUAFO00x4J",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "source_array": "$global.variable_1C7HQmwxwSjgPK5T4vD7MM8c8q1.global.variable_1C7HQmwxwSjgPK5T4vD7MM8c8q1$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01fkGiPbvQkTU386PRbZ1T0LcnmhGESrr",
+            "name": "Replace String",
+            "title": "Replace String",
+            "type": "core.replacestring",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Replace String",
+              "input_string": "$activity.definition_activity_01fkGBHgcPc7RAFqhX0ChTb2eWFMPUBFN.output.succeeded$",
+              "replace_list": [
+                {
+                  "replaced_string": "$activity.definition_activity_01fkGBHgcPc7RAFqhX0ChTb2eWFMPUBFN.output.succeeded$",
+                  "replacement_string": "$workflow.definition_workflow_01fkG98z0ByyhpIvOKwEczV7p8Bhu2faN.output.instance_id$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ]
       }
     ],
     "categories": [
@@ -159,6 +193,56 @@
         }
       ],
       "object_type": "target_group"
+    }
+  },
+  "variables": {
+    "variable_1C7HQmwxwSjgPK5T4vD7MM8c8q1": {
+      "unique_name": "variable_1C7HQmwxwSjgPK5T4vD7MM8c8q1",
+      "schema_id": "tabletype_1C7HL5FxdcKDEDvlMfjCo4YhmOY",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "age": " 1,2,3,4,5,6,7,8,9,10"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "RUSLANAGETABLE",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    },
+    "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J": {
+      "unique_name": "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J",
+      "properties": {
+        "value": -20,
+        "scope": "global",
+        "name": "-12",
+        "type": "datatype.integer"
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_1C7HL5FxdcKDEDvlMfjCo4YhmOY": {
+      "unique_name": "tabletype_1C7HL5FxdcKDEDvlMfjCo4YhmOY",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSLANTALBLETYEP2",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "maxLength": 30,
+          "name": "age",
+          "title": "age",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
     }
   }
 }
