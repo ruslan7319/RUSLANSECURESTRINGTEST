@@ -1,0 +1,164 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01fkG98z0ByyhpIvOKwEczV7p8Bhu2faN",
+    "name": "RuslanParent",
+    "title": "RuslanParent",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RuslanParent",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01fkGBHgcPc7RAFqhX0ChTb2eWFMPUBFN",
+        "name": "RuslanKAFKATEST1",
+        "title": "RuslanKAFKATEST1",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "RuslanKAFKATEST1",
+          "input": {
+            "01fkfrYYvfPo0Y7tjRPvBDgaM8hRbKGBt": "121222121212",
+            "01fkfrxGqFymNIXCJiLrCb1ztiroYdyWe": "1121212"
+          },
+          "target": {
+            "execute_on_this_target_group": true,
+            "target_group_id": "target_group_1C1fyDWwgeVubyDH1OijpGHwMD6"
+          },
+          "workflow_id": "01fkfrnEpVxVcF3GgJqZV7xLVLbZ1iqsn"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerevent_01fkfS1TqdXpbpMKTyZilcJcot8aZ80Wq": {
+      "workflow_id": "definition_workflow_01fkG98z0ByyhpIvOKwEczV7p8Bhu2faN",
+      "name": "KAFKA TRIGGER",
+      "title": "",
+      "lowercase_name": "event.kafka_trigger",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerevent_01fkfS1TqdXpbpMKTyZilcJcot8aZ80Wq",
+      "object_type": "triggerevent"
+    },
+    "triggerschedule_01fkfS3vJ8A5FC6z7QFswIxwn2viqZr2f": {
+      "workflow_id": "definition_workflow_01fkG98z0ByyhpIvOKwEczV7p8Bhu2faN",
+      "name": "Scheduler",
+      "title": "",
+      "lowercase_name": "schedule.scheduler",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01KtPq0jYiPgLcUBRCV9qWb7rtDgQcLKi",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01fkfS3vJ8A5FC6z7QFswIxwn2viqZr2f",
+      "object_type": "triggerschedule"
+    }
+  },
+  "events": {
+    "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI": {
+      "name": "RUSLANKAFKAEVENT",
+      "title": "RUSLANKAFKAEVENT",
+      "type": "kafka.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "version": "1.0.0",
+      "properties": {
+        "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+        "title": "RUSLANKAFKAEVENT",
+        "topic_name": "mytopic"
+      },
+      "unique_name": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI"
+    }
+  },
+  "schedules": {
+    "schedule_01KtPq0jYiPgLcUBRCV9qWb7rtDgQcLKi": {
+      "unique_name": "schedule_01KtPq0jYiPgLcUBRCV9qWb7rtDgQcLKi",
+      "name": "New Daily schedule",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "Etc/GMT+0",
+        "starttime": "09:25",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "New Daily schedule",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "targets": {
+    "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2": {
+      "unique_name": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "name": "RUSLAN-INTERNALKAFKA",
+      "title": "RUSLAN-INTERNALKAFKA",
+      "type": "kafka.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "RUSLAN-INTERNALKAFKA",
+        "host": "10.111.54.53",
+        "no_runtime_user": true,
+        "port": 9092,
+        "ssl_enable": false
+      }
+    }
+  },
+  "target_groups": {
+    "target_group_1C1fyDWwgeVubyDH1OijpGHwMD6": {
+      "unique_name": "target_group_1C1fyDWwgeVubyDH1OijpGHwMD6",
+      "name": "RuslanTargetGroup",
+      "title": "RuslanTargetGroup",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "left_operand": "$input.description$",
+              "operator": "eq",
+              "right_operand": "RUSLAN"
+            }
+          ]
+        },
+        {
+          "data_target_type": "kafka.endpoint",
+          "view_target_type": "kafka.endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
+    }
+  }
+}
