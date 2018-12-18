@@ -1,0 +1,101 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01ffQ6kKYaaPh4PrMCYitoQsOemrrHibA",
+    "name": "TN - LPO - PP",
+    "title": "TN - LPO - PP",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "TN - LPO - PP",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01ffQ9DUWyR8g7CZ2js7rV49QkcX3IjiG",
+        "name": "TN - LPO CP",
+        "title": "TN - LPO CP",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "TN - LPO CP",
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01ffQ0ujniAI8t0Y2WjDHKG8Azw21ACdi"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01ffQ9vGnV3jAlCBOj2JfYId5qRqykQnE",
+        "name": "Completed",
+        "title": "Completed",
+        "type": "logic.completed",
+        "base_type": "activity",
+        "properties": {
+          "completion_type": "succeeded",
+          "display_name": "Completed"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01ffQ0ujniAI8t0Y2WjDHKG8Azw21ACdi",
+        "name": "TN - LPO CP",
+        "title": "TN - LPO CP",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "TN - LPO CP",
+          "favorite": false,
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01ffQ5f1bDtAcW9J9oqnmlOcYSPeyLAwX",
+            "name": "Completed",
+            "title": "Completed",
+            "type": "logic.completed",
+            "base_type": "activity",
+            "properties": {
+              "completion_type": "succeeded",
+              "display_name": "Completed"
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
