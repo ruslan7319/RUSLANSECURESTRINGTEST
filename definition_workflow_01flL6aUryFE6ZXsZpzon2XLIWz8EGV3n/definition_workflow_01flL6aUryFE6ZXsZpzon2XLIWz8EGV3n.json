@@ -83,6 +83,25 @@
             "object_type": "definition_activity"
           }
         ]
+      },
+      {
+        "unique_name": "definition_activity_01flnPRzpYfz3SVlHYr9eznJuUJ3c8DjW",
+        "name": "Replace String",
+        "title": "Replace String",
+        "type": "core.replacestring",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Replace String",
+          "input_string": "$global.variable_01fcXjlRE8ZjQ6NeYxOig81PLV089mQKG.global.variable_01fcXjlRE8ZjQ6NeYxOig81PLV089mQKG$",
+          "replace_list": [
+            {
+              "replaced_string": "$global.variable_01fcXjlRE8ZjQ6NeYxOig81PLV089mQKG.global.variable_01fcXjlRE8ZjQ6NeYxOig81PLV089mQKG$",
+              "replacement_string": "$global.variable_01FYXeJJ8c9olfwtmgknpcJvHFBMLIyMP.global.variable_01FYXeJJ8c9olfwtmgknpcJvHFBMLIyMP[0].String$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -126,6 +145,54 @@
         "type": "datatype.string"
       },
       "object_type": "variable"
+    },
+    "variable_01fkMF3UwUZif8J2SYTBU4LZi6yrT8BMN": {
+      "unique_name": "variable_01fkMF3UwUZif8J2SYTBU4LZi6yrT8BMN",
+      "schema_id": "tabletype_01KwWnAVRoqjP8HKIG5jyQ9xtTDwQh6YU",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "Num": 1
+            }
+          },
+          {
+            "column_data": {
+              "Num": 2
+            }
+          },
+          {
+            "column_data": {
+              "Num": 3
+            }
+          },
+          {
+            "column_data": {
+              "Num": 1
+            }
+          },
+          {
+            "column_data": {
+              "Num": 2
+            }
+          },
+          {
+            "column_data": {
+              "Num": 3
+            }
+          },
+          {
+            "column_data": {
+              "Num": 1,
+              "String": "One"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "Test Table - Tuan",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
     }
   },
   "table_types": {
@@ -139,14 +206,6 @@
       "max_table_size": 26000,
       "columns": [
         {
-          "maxLength": 1,
-          "maximum": 1,
-          "minimum": 1,
-          "name": "date",
-          "title": "date",
-          "type": "date"
-        },
-        {
           "maximum": 10,
           "minimum": 1,
           "name": "Num",
@@ -158,6 +217,14 @@
           "name": "String",
           "title": "String",
           "type": "string"
+        },
+        {
+          "maxLength": 1,
+          "maximum": 1,
+          "minimum": 1,
+          "name": "date",
+          "title": "date",
+          "type": "date"
         }
       ],
       "base_type": "datatype",
