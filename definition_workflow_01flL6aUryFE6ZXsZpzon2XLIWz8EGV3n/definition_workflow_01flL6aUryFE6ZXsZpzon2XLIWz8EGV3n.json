@@ -36,10 +36,132 @@
           "workflow_id": "01flktbf3H5YLLMMkOVWJGg06LxdE1URA"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01flNXrKpm4kh4M5A2vlNgQKgCoffXVso",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "display_name": "Condition Block"
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01flNXsfrcuvFyIXDCNkTaizOfBdDov7W",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01flL8YzhEW12tGzrz9LkjnqbrD4Ox0R6.output.succeeded$",
+                "operator": "eq",
+                "right_operand": true
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01flNXsSUCipr5QRQfIyJDJxqInAI0Mtg",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$global.variable_01fcXjlRE8ZjQ6NeYxOig81PLV089mQKG.global.variable_01fcXjlRE8ZjQ6NeYxOig81PLV089mQKG$",
+                "operator": "eq",
+                "right_operand": "12"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
       }
     ],
     "categories": [
       "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
     ]
+  },
+  "variables": {
+    "variable_01FYXeJJ8c9olfwtmgknpcJvHFBMLIyMP": {
+      "unique_name": "variable_01FYXeJJ8c9olfwtmgknpcJvHFBMLIyMP",
+      "schema_id": "tabletype_01KwWnAVRoqjP8HKIG5jyQ9xtTDwQh6YU",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "Num": 1
+            }
+          },
+          {
+            "column_data": {
+              "Num": 2
+            }
+          },
+          {
+            "column_data": {
+              "Num": 3
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "RUSLANTABLE",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    },
+    "variable_01fcXjlRE8ZjQ6NeYxOig81PLV089mQKG": {
+      "unique_name": "variable_01fcXjlRE8ZjQ6NeYxOig81PLV089mQKG",
+      "properties": {
+        "value": "name",
+        "scope": "global",
+        "name": "TN - name",
+        "type": "datatype.string"
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_01KwWnAVRoqjP8HKIG5jyQ9xtTDwQh6YU": {
+      "unique_name": "tabletype_01KwWnAVRoqjP8HKIG5jyQ9xtTDwQh6YU",
+      "data_type": "datatype.tabletype",
+      "display_name": "RG global table",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "maxLength": 1,
+          "maximum": 1,
+          "minimum": 1,
+          "name": "date",
+          "title": "date",
+          "type": "date"
+        },
+        {
+          "maximum": 10,
+          "minimum": 1,
+          "name": "Num",
+          "title": "Num",
+          "type": "integer"
+        },
+        {
+          "maxLength": 10,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
   }
 }
