@@ -30,7 +30,6 @@
         "base_type": "subworkflow",
         "properties": {
           "continue_on_failure": false,
-          "description": "d",
           "display_name": "CHILD_RUSLAN",
           "input": {},
           "target": {
