@@ -30,7 +30,6 @@
         "base_type": "subworkflow",
         "properties": {
           "continue_on_failure": false,
-          "description": "f",
           "display_name": "CHILD_RUSLAN",
           "input": {},
           "target": {
@@ -128,14 +127,6 @@
       "max_table_size": 26000,
       "columns": [
         {
-          "maxLength": 1,
-          "maximum": 1,
-          "minimum": 1,
-          "name": "date",
-          "title": "date",
-          "type": "date"
-        },
-        {
           "maximum": 10,
           "minimum": 1,
           "name": "Num",
@@ -147,6 +138,14 @@
           "name": "String",
           "title": "String",
           "type": "string"
+        },
+        {
+          "maxLength": 1,
+          "maximum": 1,
+          "minimum": 1,
+          "name": "date",
+          "title": "date",
+          "type": "date"
         }
       ],
       "base_type": "datatype",
