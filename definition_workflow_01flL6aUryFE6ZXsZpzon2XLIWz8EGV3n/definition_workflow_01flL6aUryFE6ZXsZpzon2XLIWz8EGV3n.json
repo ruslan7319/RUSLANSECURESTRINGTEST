@@ -39,6 +39,17 @@
           "workflow_id": "01flktbf3H5YLLMMkOVWJGg06LxdE1URA"
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01fosURJUhNkCqKcJxIrwNKPBRkvNvQ0A",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "display_name": "Sleep"
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -128,6 +139,13 @@
       "max_table_size": 26000,
       "columns": [
         {
+          "maximum": 10,
+          "minimum": 1,
+          "name": "Num",
+          "title": "Num",
+          "type": "integer"
+        },
+        {
           "maxLength": 10,
           "name": "String",
           "title": "String",
@@ -140,13 +158,6 @@
           "name": "date",
           "title": "date",
           "type": "date"
-        },
-        {
-          "maximum": 10,
-          "minimum": 1,
-          "name": "Num",
-          "title": "Num",
-          "type": "integer"
         }
       ],
       "base_type": "datatype",
