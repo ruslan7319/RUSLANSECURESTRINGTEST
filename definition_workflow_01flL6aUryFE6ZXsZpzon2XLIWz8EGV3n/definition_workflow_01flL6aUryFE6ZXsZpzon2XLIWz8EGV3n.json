@@ -11,6 +11,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
+      "description": "111",
       "display_name": "PARENT_RUSLAN",
       "favorite": false,
       "target": {
@@ -127,13 +128,6 @@
       "max_table_size": 26000,
       "columns": [
         {
-          "maximum": 10,
-          "minimum": 1,
-          "name": "Num",
-          "title": "Num",
-          "type": "integer"
-        },
-        {
           "maxLength": 10,
           "name": "String",
           "title": "String",
@@ -146,6 +140,13 @@
           "name": "date",
           "title": "date",
           "type": "date"
+        },
+        {
+          "maximum": 10,
+          "minimum": 1,
+          "name": "Num",
+          "title": "Num",
+          "type": "integer"
         }
       ],
       "base_type": "datatype",
