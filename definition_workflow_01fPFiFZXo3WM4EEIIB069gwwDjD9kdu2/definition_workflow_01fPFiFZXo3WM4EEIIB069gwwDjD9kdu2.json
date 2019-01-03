@@ -1,0 +1,67 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01fPFiFZXo3WM4EEIIB069gwwDjD9kdu2",
+    "name": "RUSLAN KAFKA2",
+    "title": "RUSLAN KAFKA2",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "1BU8XORCVLlHpV7AcoTEwlOy5Du",
+        "properties": {
+          "value": "2018-10-30T15:04:39.244401871Z",
+          "scope": "local",
+          "name": "LocalDataType",
+          "type": "datatype.date"
+        },
+        "unique_name": "variable_workflow_01MLN46r1ITsQqSyQZ5s7GIaKT4Y2IBS5",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RUSLAN KAFKA2",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01fqbhtKBlhUg25jVJaYlwL46L8hvp89j",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MLUHPUke1JOT7jeqT6rtyTh4UH7v6HO",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "display_name": "To Upper",
+          "source": "mytest"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
