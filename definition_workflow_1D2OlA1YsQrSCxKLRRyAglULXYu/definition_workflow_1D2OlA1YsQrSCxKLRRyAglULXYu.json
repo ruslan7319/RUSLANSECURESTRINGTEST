@@ -5,7 +5,47 @@
     "title": "RuslanTestAtomicWorkflow",
     "type": "generic.workflow",
     "base_type": "workflow",
-    "variables": null,
+    "variables": [
+      {
+        "schema_id": "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Boolean": false,
+                "Number": 1,
+                "String": "1"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "LocalTable",
+          "type": "datatype.table"
+        },
+        "unique_name": "variable_workflow_01GYrdkbcCnfwFjOV3sAbnzohwpM1Efnr",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "1BU8XUrsxkbAfxRxUpjeiiqPRQV",
+        "properties": {
+          "scope": "input",
+          "name": "Input Decimal",
+          "type": "datatype.number"
+        },
+        "unique_name": "variable_workflow_01GYrFQap0E6CShcB054mFoTZlOQFd8bU",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "1BU8XORCVLlHpV7AcoTEwlOy5Du",
+        "properties": {
+          "scope": "local",
+          "name": "Date",
+          "type": "datatype.date"
+        },
+        "unique_name": "variable_workflow_01GYraT4docuQYLF05SDebReBvtwuslyC",
+        "object_type": "variable_workflow"
+      }
+    ],
     "properties": {
       "atomic": {
         "is_atomic": false
@@ -38,5 +78,93 @@
     "categories": [
       "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
     ]
+  },
+  "triggers": {
+    "triggerschedule_01GYrHNCmWSQmEG8S2WarBuENHC5oSa7t": {
+      "workflow_id": "definition_workflow_1D2OlA1YsQrSCxKLRRyAglULXYu",
+      "name": "Scheduler",
+      "title": "",
+      "lowercase_name": "schedule.scheduler",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01GYrHNCmWSQmEG8S2WarBuENHC5oSa7t",
+      "object_type": "triggerschedule"
+    }
+  },
+  "schedules": {
+    "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt": {
+      "unique_name": "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt",
+      "name": "RUSLAN_USER_CALENDAR",
+      "description": "1212",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ",
+        "timezone": "US/Pacific",
+        "starttime": "02:02",
+        "interval_hours": 6,
+        "interval_minutes": 0,
+        "number_of_times": 2,
+        "display_name": "RUSLAN_USER_CALENDAR",
+        "description": "1212"
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "calendars": {
+    "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ": {
+      "unique_name": "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ",
+      "name": "RUSLAN_USER_TEST",
+      "title": "RUSLAN_USER_TEST",
+      "description": "1212",
+      "schema_id": "1BU8Xjcndu6MCk7aWmmENQFKFwP",
+      "base_type": "calendar",
+      "type": "calendar.datelist",
+      "properties": {
+        "date_list": [
+          "2019-01-12"
+        ]
+      },
+      "version": "1.0.0",
+      "object_type": "calendar_datelist"
+    }
+  },
+  "table_types": {
+    "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f": {
+      "unique_name": "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSLAN_USER_TABLETYPE",
+      "description": "RUSLAN_USER_TABLETYPE",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "is_required": true,
+          "name": "Boolean",
+          "title": "Boolean",
+          "type": "boolean"
+        },
+        {
+          "is_required": true,
+          "name": "Number",
+          "title": "Number",
+          "type": "integer"
+        },
+        {
+          "is_required": true,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
   }
 }
