@@ -5,7 +5,19 @@
     "title": "RUSLAN-Parent-CC",
     "type": "generic.workflow",
     "base_type": "workflow",
-    "variables": null,
+    "variables": [
+      {
+        "schema_id": "01GH1xrcm1HTSF8hABU7neJM1KCEiNzu9",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "LocalIngeger",
+          "type": "datatype.integer"
+        },
+        "unique_name": "variable_workflow_01GYoPPJKomW8JPy2VXxsoWhLiTA9Lun2",
+        "object_type": "variable_workflow"
+      }
+    ],
     "properties": {
       "atomic": {
         "is_atomic": false
@@ -34,6 +46,30 @@
             "no_target": true
           },
           "workflow_id": "definition_workflow_01GrxNC1p6gyySjYBlf0WaFrzHy4YDoUH"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01GYomvwHNRMd6K5NopWtkBiBJG39yZqI",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": "$workflow.definition_workflow_01GxxYCJ2UD0LIysFzhC4odh9b8U0s8QR.local.variable_workflow_01GYoPPJKomW8JPy2VXxsoWhLiTA9Lun2$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01GYotp0mlNDM9JhCeG8V5TrDqPeNE7BF",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "display_name": "For Each"
         },
         "object_type": "definition_activity"
       }
@@ -67,6 +103,19 @@
         },
         "object_type": "definition_workflow",
         "actions": [
+          {
+            "unique_name": "definition_activity_01GYovyeNEb5IiYRqLQxVBAuHzWtwTuso",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "sleep_interval": 1
+            },
+            "object_type": "definition_activity"
+          },
           {
             "unique_name": "definition_activity_01GrxSsssxuxGiTIWhcHpU92kssHUKVv1",
             "name": "Generic CCS API Request",
