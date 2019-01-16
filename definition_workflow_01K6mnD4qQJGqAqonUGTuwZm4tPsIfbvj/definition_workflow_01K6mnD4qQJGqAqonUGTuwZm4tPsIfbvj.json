@@ -35,26 +35,6 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01K6mtHlWiZhzEl6M8UG6SU8gXDa6nIvy",
-        "name": "RUSLANATOMIC",
-        "title": "RUSLANATOMIC",
-        "type": "workflow.atomic_workflow",
-        "base_type": "subworkflow",
-        "properties": {
-          "continue_on_failure": false,
-          "display_name": "RUSLANATOMIC",
-          "input": {},
-          "target": {
-            "execute_on_this_target": false,
-            "no_target": false,
-            "override_workflow_target": false,
-            "use_workflow_target": false
-          },
-          "workflow_id": "definition_workflow_01K6l37lFqob8XJLzMqNFhjIStrRpFwMa"
-        },
-        "object_type": "definition_activity"
-      },
-      {
         "unique_name": "definition_activity_01GzakS2APhx9okuswlj5wrs2MbBvq2zK",
         "name": "Get Organizations",
         "title": "Get Organizations",
@@ -86,6 +66,24 @@
           "continue_on_failure": false,
           "display_name": "Add Row to Table",
           "input_table": "$global.variable_1CcPtYlJFU82rbhi4cDiiLMUG1A.global.variable_1CcPtYlJFU82rbhi4cDiiLMUG1A$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01Gzn0mfH8917geA56r4vyR3u8mvuBYU7",
+        "name": "RuslanTestAtomicWorkflow",
+        "title": "RuslanTestAtomicWorkflow",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "RuslanTestAtomicWorkflow",
+          "input": {},
+          "target": {
+            "execute_on_this_target_group": true,
+            "target_group_id": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi"
+          },
+          "workflow_id": "definition_workflow_1D2OlA1YsQrSCxKLRRyAglULXYu"
         },
         "object_type": "definition_activity"
       }
@@ -130,6 +128,19 @@
       "unique_name": "triggerevent_01GzBKAf33ma6YE3KpJkXXy9fOBxV2CeB",
       "object_type": "triggerevent"
     },
+    "triggerevent_01GzmIrR9oG6zhE1Q2DKHtE7CJXT17l8I": {
+      "workflow_id": "definition_workflow_01K6mnD4qQJGqAqonUGTuwZm4tPsIfbvj",
+      "name": "EVENT2",
+      "title": "",
+      "lowercase_name": "event.event2",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerevent_01GzmIrR9oG6zhE1Q2DKHtE7CJXT17l8I",
+      "object_type": "triggerevent"
+    },
     "triggerschedule_01GzBIWlV2R09mlv2XCXcaLyx3ilGOy5B": {
       "workflow_id": "definition_workflow_01K6mnD4qQJGqAqonUGTuwZm4tPsIfbvj",
       "name": "Scheduler",
@@ -141,6 +152,19 @@
       "version": "1.0.0",
       "disabled": false,
       "unique_name": "triggerschedule_01GzBIWlV2R09mlv2XCXcaLyx3ilGOy5B",
+      "object_type": "triggerschedule"
+    },
+    "triggerschedule_01GzmgIii1V0EFVag49wcGJvXxDDQcUiE": {
+      "workflow_id": "definition_workflow_01K6mnD4qQJGqAqonUGTuwZm4tPsIfbvj",
+      "name": "Scheduler2",
+      "title": "",
+      "lowercase_name": "schedule.scheduler2",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_1BWt5qFRrejesl69jHUxAiaAv2g",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01GzmgIii1V0EFVag49wcGJvXxDDQcUiE",
       "object_type": "triggerschedule"
     }
   },
@@ -169,6 +193,21 @@
         "topic_name": "RUSLAN_USER"
       },
       "unique_name": "event_01GSD8L7SQcWNDaJRR2evMsFJKLa2K5NP"
+    },
+    "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI": {
+      "name": "RUSLANKAFKAEVENT",
+      "title": "RUSLANKAFKAEVENT",
+      "type": "kafka.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "version": "1.0.0",
+      "properties": {
+        "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+        "title": "RUSLANKAFKAEVENT",
+        "topic_name": "mytopic"
+      },
+      "unique_name": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI"
     }
   },
   "schedules": {
@@ -187,6 +226,24 @@
         "number_of_times": 2,
         "display_name": "RUSLAN_USER_CALENDAR",
         "description": "1212"
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    },
+    "schedule_1BWt5qFRrejesl69jHUxAiaAv2g": {
+      "unique_name": "schedule_1BWt5qFRrejesl69jHUxAiaAv2g",
+      "name": "Ruslan",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "US/Pacific",
+        "starttime": "10:42",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "Ruslan",
+        "description": ""
       },
       "version": "1.0.0",
       "object_type": "schedule"
@@ -240,6 +297,22 @@
         "host": "n218.meraki.com",
         "protocol": "https"
       }
+    },
+    "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2": {
+      "unique_name": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "name": "RUSLAN-INTERNALKAFKA",
+      "title": "RUSLAN-INTERNALKAFKA",
+      "type": "kafka.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "RUSLAN-INTERNALKAFKA",
+        "host": "10.111.54.53",
+        "no_runtime_user": true,
+        "port": 9092,
+        "ssl_enable": false
+      }
     }
   },
   "runtime_users": {
@@ -255,27 +328,32 @@
       }
     }
   },
+  "target_groups": {
+    "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi": {
+      "unique_name": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi",
+      "name": "RUSLANTARGETGROUP2",
+      "title": "RUSLANTARGETGROUP2",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "kafka.endpoint",
+          "view_target_type": "kafka.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "left_operand": "$input.description$",
+              "operator": "ne",
+              "right_operand": "TEST"
+            }
+          ]
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
   "variables": {
-    "variable_1BUF54KZvxaAnYD0yx020nA87wz": {
-      "unique_name": "variable_1BUF54KZvxaAnYD0yx020nA87wz",
-      "properties": {
-        "value": false,
-        "scope": "global",
-        "name": "dev_global_bool_false",
-        "type": "datatype.boolean"
-      },
-      "object_type": "variable"
-    },
-    "variable_1BUFSn01K9tVjSXMdV7eoAABels": {
-      "unique_name": "variable_1BUFSn01K9tVjSXMdV7eoAABels",
-      "properties": {
-        "value": "$ENV_1$",
-        "scope": "global",
-        "name": "dev_env_str",
-        "type": "datatype.string"
-      },
-      "object_type": "variable"
-    },
     "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J": {
       "unique_name": "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J",
       "properties": {
@@ -358,7 +436,75 @@
       "object_type": "tabletype"
     }
   },
-  "atomic_workflows": [
-    "definition_workflow_01K6l37lFqob8XJLzMqNFhjIStrRpFwMa"
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_1D2OlA1YsQrSCxKLRRyAglULXYu",
+        "name": "RuslanTestAtomicWorkflow",
+        "title": "RuslanTestAtomicWorkflow",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "RuslanTestAtomicWorkflow",
+          "favorite": false,
+          "target": {
+            "execute_on_target_group": true,
+            "target_group": {
+              "target_group_id": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi",
+              "run_on_all_targets": false,
+              "selected_target_types": [
+                "kafka.endpoint"
+              ],
+              "use_criteria": {
+                "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+                "conditions": [
+                  {
+                    "operator": "ne",
+                    "left_operand": "$targetgroup.kafka endpoint.input.description$",
+                    "right_operand": "1"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_1D2RqYkdcElbY1DGK35jLJIBmxS",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "display_name": "Sleep",
+              "sleep_interval": 1
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01GzmKuCTt2oHMHb0ZQX5eqxSKjWahCdQ",
+            "name": "For Each",
+            "title": "For Each",
+            "type": "logic.for_each",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "For Each",
+              "source_array": "$global.variable_1CcPtYlJFU82rbhi4cDiiLMUG1A.global.variable_1CcPtYlJFU82rbhi4cDiiLMUG1A$"
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
   ]
 }
