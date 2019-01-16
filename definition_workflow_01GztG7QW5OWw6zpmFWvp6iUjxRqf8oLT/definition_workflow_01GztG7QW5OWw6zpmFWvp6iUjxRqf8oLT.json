@@ -8,7 +8,7 @@
     "variables": null,
     "properties": {
       "atomic": {
-        "atomic_group": "NEWGROUPRUSLAN",
+        "atomic_group": "NEWGROUPRUSLAN2",
         "is_atomic": true
       },
       "delete_workflow_instance": false,
