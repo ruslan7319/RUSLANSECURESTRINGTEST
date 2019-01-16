@@ -1,0 +1,86 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01GzpFaynOmT08ORum9NP50o3r7k83fs3",
+    "name": "PARENTATOMICWF-RUSLAN",
+    "title": "PARENTATOMICWF-RUSLAN",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "121212",
+      "display_name": "PARENTATOMICWF-RUSLAN",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01Gzpjduun7gx4SlNpxr35VLrOUe2uVDI",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01GzpPgXlHacelNQpacqXnduHZFEFlRHw",
+        "name": "CHILDATOMICWF-RUSLAN",
+        "title": "CHILDATOMICWF-RUSLAN",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "CHILDATOMICWF-RUSLAN",
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01GzpkIEv7tcW7dJZoVqW0g5IOSieyMeU"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1"
+    ]
+  },
+  "categories": {
+    "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1": {
+      "unique_name": "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1",
+      "name": "RUSLAN_USER_CATEGORY",
+      "title": "RUSLAN_USER_CATEGORY",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "TEst  1212",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "variables": {
+    "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J": {
+      "unique_name": "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J",
+      "properties": {
+        "value": -20,
+        "scope": "global",
+        "name": "-12",
+        "type": "datatype.integer"
+      },
+      "object_type": "variable"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01GzpkIEv7tcW7dJZoVqW0g5IOSieyMeU"
+  ]
+}
