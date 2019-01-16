@@ -1,0 +1,364 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01K6mnD4qQJGqAqonUGTuwZm4tPsIfbvj",
+    "name": "RUSLANATOMICPARANT-test",
+    "title": "RUSLANATOMICPARANT-test",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RUSLANATOMICPARANT-test",
+      "favorite": false,
+      "target": {
+        "target_type": "meraki.endpoint",
+        "target_id": "definition_target_01Gz8Jy2bONQSzwFZvKuxIZTHKB6btNGy",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01K6mqTFrL1ewjGGEJ8FjDht6pO0hgwr0",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": "$global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J.global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01K6mtHlWiZhzEl6M8UG6SU8gXDa6nIvy",
+        "name": "RUSLANATOMIC",
+        "title": "RUSLANATOMIC",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "RUSLANATOMIC",
+          "input": {},
+          "target": {
+            "execute_on_this_target": false,
+            "no_target": false,
+            "override_workflow_target": false,
+            "use_workflow_target": false
+          },
+          "workflow_id": "definition_workflow_01K6l37lFqob8XJLzMqNFhjIStrRpFwMa"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01GzakS2APhx9okuswlj5wrs2MbBvq2zK",
+        "name": "Get Organizations",
+        "title": "Get Organizations",
+        "type": "meraki.get_organizations",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Get Organizations",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": false,
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01GzBFEymsJtgkzqGXOZvACgeSRxSfDIU",
+        "name": "Add Row to Table",
+        "title": "Add Row to Table",
+        "type": "core.addrowtotable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Add Row to Table",
+          "input_table": "$global.variable_1CcPtYlJFU82rbhi4cDiiLMUG1A.global.variable_1CcPtYlJFU82rbhi4cDiiLMUG1A$"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1",
+      "category_01GYfdfbCV58X9KBVRLKYBxl7qnMUT9Ts"
+    ]
+  },
+  "categories": {
+    "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1": {
+      "unique_name": "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1",
+      "name": "RUSLAN_USER_CATEGORY",
+      "title": "RUSLAN_USER_CATEGORY",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "TEst  1212",
+      "category_type": "custom",
+      "object_type": "category"
+    },
+    "category_01GYfdfbCV58X9KBVRLKYBxl7qnMUT9Ts": {
+      "unique_name": "category_01GYfdfbCV58X9KBVRLKYBxl7qnMUT9Ts",
+      "name": "Carl Antone",
+      "title": "Carl Antone",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "triggers": {
+    "triggerevent_01GzBKAf33ma6YE3KpJkXXy9fOBxV2CeB": {
+      "workflow_id": "definition_workflow_01K6mnD4qQJGqAqonUGTuwZm4tPsIfbvj",
+      "name": "Event",
+      "title": "",
+      "lowercase_name": "event.event",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_01GSD8L7SQcWNDaJRR2evMsFJKLa2K5NP",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerevent_01GzBKAf33ma6YE3KpJkXXy9fOBxV2CeB",
+      "object_type": "triggerevent"
+    },
+    "triggerschedule_01GzBIWlV2R09mlv2XCXcaLyx3ilGOy5B": {
+      "workflow_id": "definition_workflow_01K6mnD4qQJGqAqonUGTuwZm4tPsIfbvj",
+      "name": "Scheduler",
+      "title": "",
+      "lowercase_name": "schedule.scheduler",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01GzBIWlV2R09mlv2XCXcaLyx3ilGOy5B",
+      "object_type": "triggerschedule"
+    }
+  },
+  "events": {
+    "event_01GSD8L7SQcWNDaJRR2evMsFJKLa2K5NP": {
+      "name": "RUSLAN_USER_KAFKA_EVENT",
+      "title": "RUSLAN_USER_KAFKA_EVENT",
+      "description": "121",
+      "type": "kafka.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": [
+          {
+            "left_operand": "$output.message$",
+            "operator": "ne",
+            "right_operand": "test"
+          }
+        ],
+        "description": "121",
+        "display_name": "RUSLAN_USER_KAFKA_EVENT",
+        "target_id": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
+        "title": "RUSLAN_USER_KAFKA_EVENT",
+        "topic_name": "RUSLAN_USER"
+      },
+      "unique_name": "event_01GSD8L7SQcWNDaJRR2evMsFJKLa2K5NP"
+    }
+  },
+  "schedules": {
+    "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt": {
+      "unique_name": "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt",
+      "name": "RUSLAN_USER_CALENDAR",
+      "description": "1212",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ",
+        "timezone": "US/Pacific",
+        "starttime": "02:02",
+        "interval_hours": 6,
+        "interval_minutes": 0,
+        "number_of_times": 2,
+        "display_name": "RUSLAN_USER_CALENDAR",
+        "description": "1212"
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "calendars": {
+    "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ": {
+      "unique_name": "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ",
+      "name": "RUSLAN_USER_TEST",
+      "title": "RUSLAN_USER_TEST",
+      "description": "1212",
+      "schema_id": "1BU8Xjcndu6MCk7aWmmENQFKFwP",
+      "base_type": "calendar",
+      "type": "calendar.datelist",
+      "properties": {
+        "date_list": [
+          "2019-01-12"
+        ]
+      },
+      "version": "1.0.0",
+      "object_type": "calendar_datelist"
+    }
+  },
+  "targets": {
+    "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz": {
+      "unique_name": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
+      "name": "RUSLAN_USER_INTERNAL_KAFKA",
+      "title": "RUSLAN_USER_INTERNAL_KAFKA",
+      "type": "kafka.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "RUSLAN_USER_INTERNAL_KAFKA",
+        "host": "10.99.102.152",
+        "no_runtime_user": true,
+        "port": 9092,
+        "ssl_enable": false
+      }
+    },
+    "definition_target_01Gz8Jy2bONQSzwFZvKuxIZTHKB6btNGy": {
+      "unique_name": "definition_target_01Gz8Jy2bONQSzwFZvKuxIZTHKB6btNGy",
+      "name": "RUSLAN_MERAKI_TARGET",
+      "title": "RUSLAN_MERAKI_TARGET",
+      "type": "meraki.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01Gz8EgAQcPtrKICgoH30oZg64cVrBN7e",
+        "display_name": "RUSLAN_MERAKI_TARGET",
+        "host": "n218.meraki.com",
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01Gz8EgAQcPtrKICgoH30oZg64cVrBN7e": {
+      "unique_name": "definition_runtime_user_01Gz8EgAQcPtrKICgoH30oZg64cVrBN7e",
+      "name": "RUSLAN_MERAKI",
+      "title": "RUSLAN_MERAKI",
+      "type": "runtime_user.meraki_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "RUSLAN_MERAKI"
+      }
+    }
+  },
+  "variables": {
+    "variable_1BUF54KZvxaAnYD0yx020nA87wz": {
+      "unique_name": "variable_1BUF54KZvxaAnYD0yx020nA87wz",
+      "properties": {
+        "value": false,
+        "scope": "global",
+        "name": "dev_global_bool_false",
+        "type": "datatype.boolean"
+      },
+      "object_type": "variable"
+    },
+    "variable_1BUFSn01K9tVjSXMdV7eoAABels": {
+      "unique_name": "variable_1BUFSn01K9tVjSXMdV7eoAABels",
+      "properties": {
+        "value": "$ENV_1$",
+        "scope": "global",
+        "name": "dev_env_str",
+        "type": "datatype.string"
+      },
+      "object_type": "variable"
+    },
+    "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J": {
+      "unique_name": "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J",
+      "properties": {
+        "value": -20,
+        "scope": "global",
+        "name": "-12",
+        "type": "datatype.integer"
+      },
+      "object_type": "variable"
+    },
+    "variable_1CcPtYlJFU82rbhi4cDiiLMUG1A": {
+      "unique_name": "variable_1CcPtYlJFU82rbhi4cDiiLMUG1A",
+      "schema_id": "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "Number": 11,
+              "String": "11"
+            }
+          },
+          {
+            "column_data": {
+              "Number": 2,
+              "String": "aaaaa"
+            }
+          },
+          {
+            "column_data": {
+              "Number": 1,
+              "String": "wqqwqw"
+            }
+          },
+          {
+            "column_data": {
+              "Number": 3,
+              "String": "bbbbb"
+            }
+          },
+          {
+            "column_data": {
+              "Number": 4,
+              "String": "ccccc"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "RUSLANLATESTTABLE",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi": {
+      "unique_name": "tabletype_1CcPn3ZWuK9DztsQHeLfhmEHbCi",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSLANLATESTTABLETYPE",
+      "description": "RUSLANLATESTTABLETYPE",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "maximum": 20,
+          "minimum": 1,
+          "name": "Number",
+          "title": "Number",
+          "type": "integer"
+        },
+        {
+          "maxLength": 20,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01K6l37lFqob8XJLzMqNFhjIStrRpFwMa"
+  ]
+}
