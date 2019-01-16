@@ -1,0 +1,56 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01GztG7QW5OWw6zpmFWvp6iUjxRqf8oLT",
+    "name": "ATOMIC_1_RUSLAN",
+    "title": "ATOMIC_1_RUSLAN",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "atomic_group": "NEWGROUPRUSLAN",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "display_name": "ATOMIC_1_RUSLAN",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01GztgcW5um1rA3igL6rZAsCos0s61nj5",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1"
+    ]
+  },
+  "categories": {
+    "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1": {
+      "unique_name": "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1",
+      "name": "RUSLAN_USER_CATEGORY",
+      "title": "RUSLAN_USER_CATEGORY",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "TEst  1212",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  }
+}
