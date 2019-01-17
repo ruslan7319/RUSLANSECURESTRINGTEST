@@ -42,7 +42,10 @@
         "type": "workflow.sub_workflow",
         "base_type": "subworkflow",
         "properties": {
+          "continue_on_failure": false,
+          "description": "tee",
           "display_name": "TriggerChild_Ruslan",
+          "input": {},
           "target": {
             "no_target": true
           },
@@ -63,8 +66,8 @@
       "lowercase_name": "event.childevent_trigger",
       "type": "event",
       "base_type": "trigger",
-      "ref_id": "event_01f9rCWqUy9jCrnyXqycKhQYxDUI3fIj3",
-      "version": "1.0.0",
+      "ref_id": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI",
+      "version": "",
       "disabled": true,
       "unique_name": "triggerevent_01g2KrzMBrlELmPjF54odXDuGCCcN5G1B",
       "object_type": "triggerevent"
@@ -135,27 +138,20 @@
       },
       "unique_name": "event_01GSD8L7SQcWNDaJRR2evMsFJKLa2K5NP"
     },
-    "event_01f9rCWqUy9jCrnyXqycKhQYxDUI3fIj3": {
-      "name": "TN - AMQP Event",
-      "title": "TN - AMQP Event",
-      "type": "amqp.event",
+    "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI": {
+      "name": "RUSLANKAFKAEVENT",
+      "title": "RUSLANKAFKAEVENT",
+      "type": "kafka.event",
       "base_type": "event",
       "object_type": "event",
-      "target_id": "definition_target_01f36geYduS7Qc1b55VMzq8iNQeSFSS7l",
+      "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
       "version": "1.0.0",
       "properties": {
-        "conditions": [
-          {
-            "left_operand": "$output.app_id$",
-            "operator": "eq",
-            "right_operand": "111"
-          }
-        ],
-        "queue_name": "LPO",
-        "target_id": "definition_target_01f36geYduS7Qc1b55VMzq8iNQeSFSS7l",
-        "title": "TN - AMQP Event"
+        "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+        "title": "RUSLANKAFKAEVENT",
+        "topic_name": "mytopic"
       },
-      "unique_name": "event_01f9rCWqUy9jCrnyXqycKhQYxDUI3fIj3"
+      "unique_name": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI"
     }
   },
   "schedules": {
@@ -232,34 +228,20 @@
         "ssl_enable": false
       }
     },
-    "definition_target_01f36geYduS7Qc1b55VMzq8iNQeSFSS7l": {
-      "unique_name": "definition_target_01f36geYduS7Qc1b55VMzq8iNQeSFSS7l",
-      "name": "TN - AMQP SSL",
-      "title": "TN - AMQP SSL",
-      "type": "amqp.endpoint",
+    "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2": {
+      "unique_name": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "name": "RUSLAN-INTERNALKAFKA",
+      "title": "RUSLAN-INTERNALKAFKA",
+      "type": "kafka.endpoint",
       "base_type": "target",
       "object_type": "definition_target",
       "properties": {
-        "default_runtime_user_id": "definition_runtime_user_01f36fvmHeJ4GrLKyiUDOMOOQKAeb6fM0",
-        "display_name": "TN - AMQP SSL",
-        "host": "10.201.125.44",
-        "ignore_certificate_errors": true,
-        "port": 5672,
-        "ssl_enabled": false,
-        "vhost": "/"
-      }
-    }
-  },
-  "runtime_users": {
-    "definition_runtime_user_01f36fvmHeJ4GrLKyiUDOMOOQKAeb6fM0": {
-      "unique_name": "definition_runtime_user_01f36fvmHeJ4GrLKyiUDOMOOQKAeb6fM0",
-      "name": "TN - AMQP User",
-      "title": "TN - AMQP User",
-      "type": "runtime_user.amqp_password_credentials",
-      "base_type": "runtime_user",
-      "object_type": "definition_runtime_user",
-      "properties": {
-        "display_name": "TN - AMQP User"
+        "disable_certificate_validation": false,
+        "display_name": "RUSLAN-INTERNALKAFKA",
+        "host": "10.111.54.53",
+        "no_runtime_user": true,
+        "port": 9092,
+        "ssl_enable": false
       }
     }
   },
