@@ -1,0 +1,121 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01g5wA3DSGWfime9UK5nGJOI73UJMgaSJ",
+    "name": "RUSLAN-ExternalCloudCenterParent-ruslanuser",
+    "title": "RUSLAN-ExternalCloudCenterParent-ruslanuser",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "121",
+      "display_name": "RUSLAN-ExternalCloudCenterParent-ruslanuser",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01g5wAhpiKtv8D8sNaGYyigxQr1HEzzgB",
+        "name": "Find Cost Group",
+        "title": "Find Cost Group",
+        "type": "ccs.get_cost_groups",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Find Cost Group",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01g5wAKOvbOTETfd21OulCMcDAEThAUpn",
+        "name": "RUsLAN_EXTERNALCCTARGET-CHILD",
+        "title": "RUsLAN_EXTERNALCCTARGET-CHILD",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "RUsLAN_EXTERNALCCTARGET-CHILD",
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01g5wA6vjCTnJpUclIzhQPXRc8xqQzX47"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01g5wA6vjCTnJpUclIzhQPXRc8xqQzX47",
+        "name": "RUsLAN_EXTERNALCCTARGET-CHILD",
+        "title": "RUsLAN_EXTERNALCCTARGET-CHILD",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "RUsLAN_EXTERNALCCTARGET-CHILD",
+          "favorite": false,
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01g5wADDdpkyxWm3bHgzFDiyitPclleWy",
+            "name": "Add Cloud Account",
+            "title": "Add Cloud Account",
+            "type": "ccs.add_cloud_account",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Add Cloud Account",
+              "kube_account_token": false,
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
