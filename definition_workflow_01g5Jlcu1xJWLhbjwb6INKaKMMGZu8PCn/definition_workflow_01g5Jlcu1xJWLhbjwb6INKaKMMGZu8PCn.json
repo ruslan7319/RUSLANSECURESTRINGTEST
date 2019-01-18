@@ -1,0 +1,82 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01g5Jlcu1xJWLhbjwb6INKaKMMGZu8PCn",
+    "name": "RUSLAN-ExternalCloudCenter",
+    "title": "RUSLAN-ExternalCloudCenter",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RUSLAN-ExternalCloudCenter",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01g5JsiUrH6EKoL3PLpUMXJ2GUWJ6AWFP",
+        "name": "Find Cost Group",
+        "title": "Find Cost Group",
+        "type": "ccs.get_cost_groups",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Find Cost Group",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01GM6sLGqcTo8maoae3WdqA1ETysHbSJV"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01GM6sLGqcTo8maoae3WdqA1ETysHbSJV": {
+      "unique_name": "definition_target_01GM6sLGqcTo8maoae3WdqA1ETysHbSJV",
+      "name": "86",
+      "title": "86",
+      "type": "ccsuite.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01GM5JRDpkj1KEgtnmeoufJID01C1eZuO",
+        "disable_certificate_validation": false,
+        "display_name": "86",
+        "host": "172.21.45.86",
+        "port": 14737,
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01GM5JRDpkj1KEgtnmeoufJID01C1eZuO": {
+      "unique_name": "definition_runtime_user_01GM5JRDpkj1KEgtnmeoufJID01C1eZuO",
+      "name": "86user",
+      "title": "86user",
+      "type": "runtime_user.ccs_explicit_user",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "86user"
+      }
+    }
+  }
+}
