@@ -36,16 +36,55 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01g2KTz0KxzETrWHgQEm7vP4KQ8EYH2Ng",
+        "unique_name": "definition_activity_01gEEDzTHqrpodCqp3V2c1JGFDYbcMDL5",
+        "name": "Get CloudCenter Context",
+        "title": "Get CloudCenter Context",
+        "type": "ccs.get_cloud_context",
+        "base_type": "activity",
+        "properties": {
+          "action_id": "82",
+          "action_timeout": 180,
+          "cc_configuration": {
+            "execute_action": "on_vm",
+            "reboot_vm": false,
+            "resource_mappings": [
+              {
+                "applied_to": {
+                  "app_ids": [
+                    {
+                      "id": "31",
+                      "name": "CentOS 6.x"
+                    }
+                  ]
+                },
+                "resource_type": "app_profile"
+              }
+            ],
+            "sync_vm": false,
+            "wf_availability_type": "lifecycle"
+          },
+          "cc_run_id": "1",
+          "continue_on_failure": false,
+          "display_name": "Get CloudCenter Context",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01gEHsYdbUm9cCs2iiSFgkz5Hz7cpIxHc",
         "name": "TriggerChild_Ruslan",
         "title": "TriggerChild_Ruslan",
-        "type": "workflow.sub_workflow",
+        "type": "workflow.atomic_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "continue_on_failure": false,
-          "description": "tee",
           "display_name": "TriggerChild_Ruslan",
-          "input": {},
           "target": {
             "no_target": true
           },
@@ -67,7 +106,7 @@
       "type": "event",
       "base_type": "trigger",
       "ref_id": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI",
-      "version": "",
+      "version": "1.0.0",
       "disabled": true,
       "unique_name": "triggerevent_01g2KrzMBrlELmPjF54odXDuGCCcN5G1B",
       "object_type": "triggerevent"
@@ -199,7 +238,7 @@
       "name": "RUSLAN_USER_TEST",
       "title": "RUSLAN_USER_TEST",
       "description": "1212",
-      "schema_id": "1BU8Xjcndu6MCk7aWmmENQFKFwP",
+      "schema_id": "01GH1xuKuWxihuDGFy3nOnossfQ8o7AAo",
       "base_type": "calendar",
       "type": "calendar.datelist",
       "properties": {
@@ -245,49 +284,7 @@
       }
     }
   },
-  "subworkflows": [
-    {
-      "workflow": {
-        "unique_name": "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28",
-        "name": "TriggerChild_Ruslan",
-        "title": "TriggerChild_Ruslan",
-        "type": "generic.workflow",
-        "base_type": "workflow",
-        "variables": null,
-        "properties": {
-          "atomic": {
-            "is_atomic": false
-          },
-          "delete_workflow_instance": false,
-          "display_name": "TriggerChild_Ruslan",
-          "favorite": false,
-          "target": {
-            "execute_on_target_group": false,
-            "execute_on_workflow_target": false,
-            "no_target": true,
-            "specify_on_workflow_start": false
-          }
-        },
-        "object_type": "definition_workflow",
-        "actions": [
-          {
-            "unique_name": "definition_activity_01g2hzGrKqzyIVXKzasnOoxrIlYY2pP5l",
-            "name": "Sleep",
-            "title": "Sleep",
-            "type": "core.sleep",
-            "base_type": "activity",
-            "properties": {
-              "continue_on_failure": false,
-              "display_name": "Sleep",
-              "sleep_interval": 1
-            },
-            "object_type": "definition_activity"
-          }
-        ],
-        "categories": [
-          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
-        ]
-      }
-    }
+  "atomic_workflows": [
+    "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28"
   ]
 }
