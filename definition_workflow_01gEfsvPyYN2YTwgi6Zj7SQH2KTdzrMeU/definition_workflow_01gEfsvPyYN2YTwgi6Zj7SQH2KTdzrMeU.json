@@ -1,0 +1,55 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01gEfsvPyYN2YTwgi6Zj7SQH2KTdzrMeU",
+    "name": "test-rum",
+    "title": "test-rum",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "1BU8Xf2pq4RlP62YADgAlFIr6Yr",
+        "properties": {
+          "value": "sadsdf",
+          "scope": "input",
+          "name": "input-str",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_01gEfv7vW4a3FgaVO0b3jzJ6vCdae7dns",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "test-rum",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01gEftVnPpeH8tQLDckL7hXiLTHZtnO5E",
+        "name": "To Lower",
+        "title": "To Lower - updated name",
+        "type": "core.string2lower",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "To Lower - updated name",
+          "source": "RUMAN"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
