@@ -14,10 +14,24 @@
       "display_name": "RUSLAN_PARENT1",
       "favorite": false,
       "target": {
-        "execute_on_target_group": false,
-        "execute_on_workflow_target": false,
-        "no_target": true,
-        "specify_on_workflow_start": false
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_01giEHB8YMiwmLc4dZcPAFll4MUyGQQEX",
+          "run_on_all_targets": false,
+          "selected_target_types": [
+            "kafka.endpoint"
+          ],
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "eq",
+                "left_operand": "$targetgroup.kafka endpoint.input.description$",
+                "right_operand": "1"
+              }
+            ]
+          }
+        }
       }
     },
     "object_type": "definition_workflow",
@@ -31,9 +45,8 @@
         "properties": {
           "display_name": "RUSLANCHILD_1",
           "target": {
-            "execute_on_this_target": true,
-            "target_id": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
-            "target_type": "kafka.endpoint"
+            "execute_on_this_target_group": true,
+            "target_group_id": "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV"
           },
           "workflow_id": "definition_workflow_01gH4kwicTpds85EMBXgJkr6f2re44cod"
         },
@@ -154,6 +167,69 @@
         "port": 9092,
         "ssl_enable": false
       }
+    },
+    "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt": {
+      "unique_name": "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt",
+      "name": "gcp-tar",
+      "title": "gcp-tar",
+      "type": "gcp.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01gIVt3E22jYWWHbr4BoP7qiONIi2bADn",
+        "display_name": "gcp-tar",
+        "host": "www.googleapis.com",
+        "no_proxy": false,
+        "protocol": "https",
+        "scope": "/auth/cloud-platform"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01gIVt3E22jYWWHbr4BoP7qiONIi2bADn": {
+      "unique_name": "definition_runtime_user_01gIVt3E22jYWWHbr4BoP7qiONIi2bADn",
+      "name": "gcpuser",
+      "title": "gcpuser",
+      "type": "runtime_user.gcp_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "gcpuser"
+      }
+    }
+  },
+  "target_groups": {
+    "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV": {
+      "unique_name": "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV",
+      "name": "TN - Oralce Target Group",
+      "title": "TN - Oralce Target Group",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "corejava.jdbc_endpoint",
+          "view_target_type": "corejava.jdbc_endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
+    },
+    "target_group_01giEHB8YMiwmLc4dZcPAFll4MUyGQQEX": {
+      "unique_name": "target_group_01giEHB8YMiwmLc4dZcPAFll4MUyGQQEX",
+      "name": "Dev_TargetGroup_Kafka",
+      "title": "Dev_TargetGroup_Kafka",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "kafka.endpoint",
+          "view_target_type": "kafka.endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
     }
   },
   "subworkflows": [
@@ -173,9 +249,24 @@
           "display_name": "RUSLANCHILD_2",
           "favorite": false,
           "target": {
-            "target_type": "kafka.endpoint",
-            "target_id": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
-            "execute_on_workflow_target": true
+            "execute_on_target_group": true,
+            "target_group": {
+              "target_group_id": "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV",
+              "run_on_all_targets": false,
+              "selected_target_types": [
+                "corejava.jdbc_endpoint"
+              ],
+              "use_criteria": {
+                "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+                "conditions": [
+                  {
+                    "operator": "nmw",
+                    "left_operand": "$targetgroup.corejava jdbc_endpoint.input.dbtype$",
+                    "right_operand": "*"
+                  }
+                ]
+              }
+            }
           }
         },
         "object_type": "definition_workflow",
@@ -204,10 +295,9 @@
               "display_name": "RuslanGrantChild",
               "input": {},
               "target": {
-                "execute_on_this_target": false,
-                "no_target": true,
-                "override_workflow_target": false,
-                "use_workflow_target": false
+                "execute_on_this_target": true,
+                "target_id": "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt",
+                "target_type": "gcp.endpoint"
               },
               "workflow_id": "definition_workflow_01giOMFc3jSQ5KXvOiRrx0MW1XtrZFALJ"
             },
@@ -235,10 +325,9 @@
               "display_name": "RuslanGrantChild",
               "favorite": false,
               "target": {
-                "execute_on_target_group": false,
-                "execute_on_workflow_target": false,
-                "no_target": true,
-                "specify_on_workflow_start": false
+                "target_type": "gcp.endpoint",
+                "target_id": "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt",
+                "execute_on_workflow_target": true
               }
             },
             "object_type": "definition_workflow",
