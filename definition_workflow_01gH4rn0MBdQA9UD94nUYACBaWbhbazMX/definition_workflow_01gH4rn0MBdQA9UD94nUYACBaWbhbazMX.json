@@ -1,22 +1,34 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_01gH4rn0MBdQA9UD94nUYACBaWbhbazMX",
-    "name": "RUSLAN_PARENT1",
-    "title": "RUSLAN_PARENT1",
+    "name": "RUSLAN_PARENT1-65",
+    "title": "RUSLAN_PARENT1-65",
     "type": "generic.workflow",
     "base_type": "workflow",
-    "variables": null,
+    "variables": [
+      {
+        "schema_id": "1BU8XUBtnBgWzpKEIrm9zRxTkLQ",
+        "properties": {
+          "value": 11,
+          "scope": "local",
+          "name": "Number",
+          "type": "datatype.integer"
+        },
+        "unique_name": "variable_workflow_01gN1Zih7MgN1Z6jQwWZwCNSTqqt603Ky",
+        "object_type": "variable_workflow"
+      }
+    ],
     "properties": {
       "atomic": {
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "display_name": "RUSLAN_PARENT1",
+      "display_name": "RUSLAN_PARENT1-65",
       "favorite": false,
       "target": {
         "execute_on_target_group": true,
         "target_group": {
-          "target_group_id": "target_group_01giEHB8YMiwmLc4dZcPAFll4MUyGQQEX",
+          "target_group_id": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi",
           "run_on_all_targets": false,
           "selected_target_types": [
             "kafka.endpoint"
@@ -25,7 +37,7 @@
             "choose_target_using_algorithm": "choose_all_with_matching_criteria",
             "conditions": [
               {
-                "operator": "eq",
+                "operator": "ne",
                 "left_operand": "$targetgroup.kafka endpoint.input.description$",
                 "right_operand": "1"
               }
@@ -37,18 +49,34 @@
     "object_type": "definition_workflow",
     "actions": [
       {
-        "unique_name": "definition_activity_01gH4sFBI6yTEJlwvYMs9Fa2DjwZOr06m",
-        "name": "RUSLANCHILD_1",
-        "title": "RUSLANCHILD_1",
+        "unique_name": "definition_activity_01gN1vL2A8j3S4r3sASeKMEhLchnbjgca",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "To Upper",
+          "source": "$global.variable_1BUHWeM8egDD46FEh0AghrqIND2.global.variable_1BUHWeM8egDD46FEh0AghrqIND2$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01gN2efS9giaeh25R2IybEJhWUfOOQUpo",
+        "name": "RUSLANCHILD_12",
+        "title": "RUSLANCHILD_12",
         "type": "workflow.sub_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "display_name": "RUSLANCHILD_1",
+          "continue_on_failure": false,
+          "display_name": "RUSLANCHILD_12",
+          "input": {},
           "target": {
-            "execute_on_this_target_group": true,
-            "target_group_id": "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV"
+            "execute_on_this_target": true,
+            "target_id": "definition_target_1BfCtnoyE0xWq7fz45YoNDgl3gL",
+            "target_type": "git.endpoint"
           },
-          "workflow_id": "definition_workflow_01gH4kwicTpds85EMBXgJkr6f2re44cod"
+          "workflow_id": "definition_workflow_01gi8g6KVMOYc15meA3O4xJ2Ggsd7KNt9"
         },
         "object_type": "definition_activity"
       }
@@ -82,6 +110,19 @@
       "version": "1.0.0",
       "disabled": false,
       "unique_name": "triggerschedule_01gHbwQ8FaiXr1LqyCTtyMwmDuEBO1eQu",
+      "object_type": "triggerschedule"
+    },
+    "triggerschedule_01giHmwDXfogk11NDnBIzi0pDZYEfUECP": {
+      "workflow_id": "definition_workflow_01gH4rn0MBdQA9UD94nUYACBaWbhbazMX",
+      "name": "Ruslan_User_Update",
+      "title": "",
+      "lowercase_name": "schedule.ruslan_user_update",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01giHmwDXfogk11NDnBIzi0pDZYEfUECP",
       "object_type": "triggerschedule"
     }
   },
@@ -122,10 +163,10 @@
       "properties": {
         "calendar": "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ",
         "timezone": "US/Pacific",
-        "starttime": "02:02",
+        "starttime": "13:15",
         "interval_hours": 6,
         "interval_minutes": 0,
-        "number_of_times": 2,
+        "number_of_times": 1,
         "display_name": "RUSLAN_USER_CALENDAR",
         "description": "1212"
       },
@@ -139,12 +180,12 @@
       "name": "RUSLAN_USER_TEST",
       "title": "RUSLAN_USER_TEST",
       "description": "1212",
-      "schema_id": "01gFpz1WQudCFVPXo7gXEOVOt37b8eJgM",
+      "schema_id": "1BU8Xjcndu6MCk7aWmmENQFKFwP",
       "base_type": "calendar",
       "type": "calendar.datelist",
       "properties": {
         "date_list": [
-          "2019-01-12"
+          "2019-01-28"
         ]
       },
       "version": "1.0.0",
@@ -168,57 +209,41 @@
         "ssl_enable": false
       }
     },
-    "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt": {
-      "unique_name": "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt",
-      "name": "gcp-tar",
-      "title": "gcp-tar",
-      "type": "gcp.endpoint",
+    "definition_target_1BfCtnoyE0xWq7fz45YoNDgl3gL": {
+      "unique_name": "definition_target_1BfCtnoyE0xWq7fz45YoNDgl3gL",
+      "name": "TN - Git Target",
+      "title": "TN - Git Target",
+      "type": "git.endpoint",
       "base_type": "target",
       "object_type": "definition_target",
       "properties": {
-        "default_runtime_user_id": "definition_runtime_user_01gIVt3E22jYWWHbr4BoP7qiONIi2bADn",
-        "display_name": "gcp-tar",
-        "host": "www.googleapis.com",
-        "no_proxy": false,
+        "branch": "master",
+        "default_runtime_user_id": "definition_runtime_user_1BfCkj5Gvyqd2NZIZehkq9S3Eck",
+        "display_name": "TN - Git Target",
+        "ignore_certificate_errors": true,
         "protocol": "https",
-        "scope": "/auth/cloud-platform"
+        "repo": "github.com/tony73uh/LPO"
       }
     }
   },
   "runtime_users": {
-    "definition_runtime_user_01gIVt3E22jYWWHbr4BoP7qiONIi2bADn": {
-      "unique_name": "definition_runtime_user_01gIVt3E22jYWWHbr4BoP7qiONIi2bADn",
-      "name": "gcpuser",
-      "title": "gcpuser",
-      "type": "runtime_user.gcp_credentials",
+    "definition_runtime_user_1BfCkj5Gvyqd2NZIZehkq9S3Eck": {
+      "unique_name": "definition_runtime_user_1BfCkj5Gvyqd2NZIZehkq9S3Eck",
+      "name": "TN - Git User",
+      "title": "TN - Git User",
+      "type": "runtime_user.git_password_credentials",
       "base_type": "runtime_user",
       "object_type": "definition_runtime_user",
       "properties": {
-        "display_name": "gcpuser"
+        "display_name": "TN - Git User"
       }
     }
   },
   "target_groups": {
-    "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV": {
-      "unique_name": "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV",
-      "name": "TN - Oralce Target Group",
-      "title": "TN - Oralce Target Group",
-      "type": "generic.target_group",
-      "base_type": "target_group",
-      "version": "1.0.0",
-      "targets": [
-        {
-          "data_target_type": "corejava.jdbc_endpoint",
-          "view_target_type": "corejava.jdbc_endpoint",
-          "include_all_targets": true
-        }
-      ],
-      "object_type": "target_group"
-    },
-    "target_group_01giEHB8YMiwmLc4dZcPAFll4MUyGQQEX": {
-      "unique_name": "target_group_01giEHB8YMiwmLc4dZcPAFll4MUyGQQEX",
-      "name": "Dev_TargetGroup_Kafka",
-      "title": "Dev_TargetGroup_Kafka",
+    "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi": {
+      "unique_name": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi",
+      "name": "RUSLANTARGETGROUP2",
+      "title": "RUSLANTARGETGROUP2",
       "type": "generic.target_group",
       "base_type": "target_group",
       "version": "1.0.0",
@@ -226,18 +251,67 @@
         {
           "data_target_type": "kafka.endpoint",
           "view_target_type": "kafka.endpoint",
-          "include_all_targets": true
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "left_operand": "$input.description$",
+              "operator": "ne",
+              "right_operand": "TEST"
+            }
+          ]
         }
       ],
       "object_type": "target_group"
     }
   },
+  "variables": {
+    "variable_01GOCFLF7ZBpYzKZ9n6IzFwZ7Twhyo0sF": {
+      "unique_name": "variable_01GOCFLF7ZBpYzKZ9n6IzFwZ7Twhyo0sF",
+      "properties": {
+        "value": "abc",
+        "scope": "global",
+        "name": "binstr",
+        "type": "datatype.string"
+      },
+      "object_type": "variable"
+    },
+    "variable_1BUHWeM8egDD46FEh0AghrqIND2": {
+      "unique_name": "variable_1BUHWeM8egDD46FEh0AghrqIND2",
+      "properties": {
+        "value": 12,
+        "scope": "global",
+        "name": "binInt",
+        "type": "datatype.integer"
+      },
+      "object_type": "variable"
+    },
+    "variable_1C4zO4DMx820MhIwf0WQBLhRGP6": {
+      "unique_name": "variable_1C4zO4DMx820MhIwf0WQBLhRGP6",
+      "properties": {
+        "value": false,
+        "scope": "global",
+        "name": "bool API",
+        "type": "datatype.boolean"
+      },
+      "object_type": "variable"
+    },
+    "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J": {
+      "unique_name": "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J",
+      "properties": {
+        "value": -20,
+        "scope": "global",
+        "name": "-12",
+        "type": "datatype.integer"
+      },
+      "object_type": "variable"
+    }
+  },
   "subworkflows": [
     {
       "workflow": {
-        "unique_name": "definition_workflow_01gH4kwicTpds85EMBXgJkr6f2re44cod",
-        "name": "RUSLANCHILD_2",
-        "title": "RUSLANCHILD_2",
+        "unique_name": "definition_workflow_01gi8g6KVMOYc15meA3O4xJ2Ggsd7KNt9",
+        "name": "RUSLANCHILD_12-65",
+        "title": "RUSLANCHILD_12-65",
         "type": "generic.workflow",
         "base_type": "workflow",
         "variables": null,
@@ -245,34 +319,20 @@
           "atomic": {
             "is_atomic": false
           },
-          "delete_workflow_instance": false,
-          "display_name": "RUSLANCHILD_2",
+          "delete_workflow_instance": true,
+          "description": "121",
+          "display_name": "RUSLANCHILD_12-65",
           "favorite": false,
           "target": {
-            "execute_on_target_group": true,
-            "target_group": {
-              "target_group_id": "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV",
-              "run_on_all_targets": false,
-              "selected_target_types": [
-                "corejava.jdbc_endpoint"
-              ],
-              "use_criteria": {
-                "choose_target_using_algorithm": "choose_all_with_matching_criteria",
-                "conditions": [
-                  {
-                    "operator": "nmw",
-                    "left_operand": "$targetgroup.corejava jdbc_endpoint.input.dbtype$",
-                    "right_operand": "*"
-                  }
-                ]
-              }
-            }
+            "target_type": "git.endpoint",
+            "target_id": "definition_target_1BfCtnoyE0xWq7fz45YoNDgl3gL",
+            "execute_on_workflow_target": true
           }
         },
         "object_type": "definition_workflow",
         "actions": [
           {
-            "unique_name": "definition_activity_01gH4PoJneAhqCPYnMGMUdyH1kx4sVXRq",
+            "unique_name": "definition_activity_01gi8gbaSZw2oLJYfOYcP2cYItoTGoNYC",
             "name": "Sleep",
             "title": "Sleep",
             "type": "core.sleep",
@@ -285,21 +345,35 @@
             "object_type": "definition_activity"
           },
           {
-            "unique_name": "definition_activity_01giOQmsmtAPIJKsHwDPEfg8XNtackVMQ",
-            "name": "RuslanGrantChild",
-            "title": "RuslanGrantChild",
+            "unique_name": "definition_activity_01giasCHErVrCW3pYhQde25JO73JWt0uK",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "sleep_interval": 1
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01gilFrXTprxAni2tMEb2DvBoYaqJS27W",
+            "name": "RuslanGranChild",
+            "title": "RuslanGranChild",
             "type": "workflow.sub_workflow",
             "base_type": "subworkflow",
             "properties": {
               "continue_on_failure": false,
-              "display_name": "RuslanGrantChild",
+              "display_name": "RuslanGranChild",
               "input": {},
               "target": {
-                "execute_on_this_target": true,
-                "target_id": "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt",
-                "target_type": "gcp.endpoint"
+                "execute_on_this_target": false,
+                "no_target": true,
+                "override_workflow_target": false,
+                "use_workflow_target": false
               },
-              "workflow_id": "definition_workflow_01giOMFc3jSQ5KXvOiRrx0MW1XtrZFALJ"
+              "workflow_id": "definition_workflow_01giAwKZMWLk3nuMIIGxPc8vCNEURhU0q"
             },
             "object_type": "definition_activity"
           }
@@ -311,9 +385,9 @@
       "subworkflows": [
         {
           "workflow": {
-            "unique_name": "definition_workflow_01giOMFc3jSQ5KXvOiRrx0MW1XtrZFALJ",
-            "name": "RuslanGrantChild",
-            "title": "RuslanGrantChild",
+            "unique_name": "definition_workflow_01giAwKZMWLk3nuMIIGxPc8vCNEURhU0q",
+            "name": "RuslanGranChild-65",
+            "title": "RuslanGranChild-65",
             "type": "generic.workflow",
             "base_type": "workflow",
             "variables": null,
@@ -322,18 +396,19 @@
                 "is_atomic": false
               },
               "delete_workflow_instance": false,
-              "display_name": "RuslanGrantChild",
+              "display_name": "RuslanGranChild-65",
               "favorite": false,
               "target": {
-                "target_type": "gcp.endpoint",
-                "target_id": "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt",
-                "execute_on_workflow_target": true
+                "execute_on_target_group": false,
+                "execute_on_workflow_target": false,
+                "no_target": true,
+                "specify_on_workflow_start": false
               }
             },
             "object_type": "definition_workflow",
             "actions": [
               {
-                "unique_name": "definition_activity_01giOnfwHxdP7K83D6kj5hlKKjPHta13P",
+                "unique_name": "definition_activity_01giAywzi7wnFrpw5RKJJvpMQ5FzSSP2W",
                 "name": "Sleep",
                 "title": "Sleep",
                 "type": "core.sleep",
@@ -344,6 +419,53 @@
                   "sleep_interval": 1
                 },
                 "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01gN2Mtl5HCZvoTscllhojk08fkslOUmO",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "display_name": "Condition Block"
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01gN2MuqX8wlfIa6ABKKHtLiXOPL0J2nd",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J.global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J$",
+                        "operator": "eq",
+                        "right_operand": 1
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01gN2MVcWBRzFmZNwSJNj4J6z6sQEidzb",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$global.variable_01GOCFLF7ZBpYzKZ9n6IzFwZ7Twhyo0sF.global.variable_01GOCFLF7ZBpYzKZ9n6IzFwZ7Twhyo0sF$",
+                        "operator": "ne",
+                        "right_operand": "$global.variable_1C4zO4DMx820MhIwf0WQBLhRGP6.global.variable_1C4zO4DMx820MhIwf0WQBLhRGP6$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
               }
             ],
             "categories": [
