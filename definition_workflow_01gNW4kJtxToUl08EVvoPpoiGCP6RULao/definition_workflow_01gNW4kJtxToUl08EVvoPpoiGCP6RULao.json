@@ -1,0 +1,60 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01gNW4kJtxToUl08EVvoPpoiGCP6RULao",
+    "name": "65-Parent",
+    "title": "65-Parent",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "65-Parent",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01gNW7reO2gtt2vuLT0gUpHmCMJxcrNY1",
+        "name": "65-Atomicworkflow",
+        "title": "65-Atomicworkflow",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "65-Atomicworkflow",
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01gNvXWIt8NNY281zTNA0AsRfXBeExuGj"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "categories": {
+    "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1": {
+      "unique_name": "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1",
+      "name": "RUSLAN_USER_CATEGORY",
+      "title": "RUSLAN_USER_CATEGORY",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "TEst  1212",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01gNvXWIt8NNY281zTNA0AsRfXBeExuGj"
+  ]
+}
