@@ -31,7 +31,9 @@
         "properties": {
           "display_name": "RUSLANCHILD_1",
           "target": {
-            "no_target": true
+            "execute_on_this_target": true,
+            "target_id": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
+            "target_type": "kafka.endpoint"
           },
           "workflow_id": "definition_workflow_01gH4kwicTpds85EMBXgJkr6f2re44cod"
         },
@@ -124,7 +126,7 @@
       "name": "RUSLAN_USER_TEST",
       "title": "RUSLAN_USER_TEST",
       "description": "1212",
-      "schema_id": "1BU8Xjcndu6MCk7aWmmENQFKFwP",
+      "schema_id": "01gFpz1WQudCFVPXo7gXEOVOt37b8eJgM",
       "base_type": "calendar",
       "type": "calendar.datelist",
       "properties": {
@@ -171,10 +173,9 @@
           "display_name": "RUSLANCHILD_2",
           "favorite": false,
           "target": {
-            "execute_on_target_group": false,
-            "execute_on_workflow_target": false,
-            "no_target": true,
-            "specify_on_workflow_start": false
+            "target_type": "kafka.endpoint",
+            "target_id": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
+            "execute_on_workflow_target": true
           }
         },
         "object_type": "definition_workflow",
@@ -191,12 +192,77 @@
               "sleep_interval": 1
             },
             "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01giOQmsmtAPIJKsHwDPEfg8XNtackVMQ",
+            "name": "RuslanGrantChild",
+            "title": "RuslanGrantChild",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "RuslanGrantChild",
+              "input": {},
+              "target": {
+                "execute_on_this_target": false,
+                "no_target": true,
+                "override_workflow_target": false,
+                "use_workflow_target": false
+              },
+              "workflow_id": "definition_workflow_01giOMFc3jSQ5KXvOiRrx0MW1XtrZFALJ"
+            },
+            "object_type": "definition_activity"
           }
         ],
         "categories": [
           "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
         ]
-      }
+      },
+      "subworkflows": [
+        {
+          "workflow": {
+            "unique_name": "definition_workflow_01giOMFc3jSQ5KXvOiRrx0MW1XtrZFALJ",
+            "name": "RuslanGrantChild",
+            "title": "RuslanGrantChild",
+            "type": "generic.workflow",
+            "base_type": "workflow",
+            "variables": null,
+            "properties": {
+              "atomic": {
+                "is_atomic": false
+              },
+              "delete_workflow_instance": false,
+              "display_name": "RuslanGrantChild",
+              "favorite": false,
+              "target": {
+                "execute_on_target_group": false,
+                "execute_on_workflow_target": false,
+                "no_target": true,
+                "specify_on_workflow_start": false
+              }
+            },
+            "object_type": "definition_workflow",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01giOnfwHxdP7K83D6kj5hlKKjPHta13P",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "sleep_interval": 1
+                },
+                "object_type": "definition_activity"
+              }
+            ],
+            "categories": [
+              "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+            ]
+          }
+        }
+      ]
     }
   ]
 }
