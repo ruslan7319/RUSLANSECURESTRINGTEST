@@ -156,6 +156,12 @@
       "columns": [
         {
           "is_required": true,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        },
+        {
+          "is_required": true,
           "name": "Boolean",
           "title": "Boolean",
           "type": "boolean"
@@ -165,12 +171,6 @@
           "name": "Number",
           "title": "Number",
           "type": "integer"
-        },
-        {
-          "is_required": true,
-          "name": "String",
-          "title": "String",
-          "type": "string"
         }
       ],
       "base_type": "datatype",
