@@ -1,0 +1,180 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01gNvXWIt8NNY281zTNA0AsRfXBeExuGj",
+    "name": "65-Atomicworkflow",
+    "title": "65-Atomicworkflow",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "atomic_group": "NEWGROUP",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "display_name": "65-Atomicworkflow",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi",
+          "run_on_all_targets": false,
+          "selected_target_types": [
+            "kafka.endpoint"
+          ],
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "mw",
+                "left_operand": "$targetgroup.kafka endpoint.input.description$",
+                "right_operand": "1"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01gNvyuFIastq73e3rgBb7Mih54aZlWFj",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01goQ9FxLIAi2dkJkcv1e302nbnapy1oW",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "source_array": "$global.variable_01gojFF4KunsS3KW5CUUFz2UAdhZqPRIl.global.variable_01gojFF4KunsS3KW5CUUFz2UAdhZqPRIl$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01goQBG5WDlrFfO0uCcpV7MY0N0UiiAuL",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "sleep_interval": "$global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J.global.variable_1CFu0XzWSTMVXZo58IQX1vdbq4J$"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1"
+    ]
+  },
+  "categories": {
+    "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1": {
+      "unique_name": "category_01GSDECY2CwO1BzrMnSidNqppKXzgV4u1",
+      "name": "RUSLAN_USER_CATEGORY",
+      "title": "RUSLAN_USER_CATEGORY",
+      "type": "basic.category",
+      "base_type": "category",
+      "description": "TEst  1212",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "target_groups": {
+    "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi": {
+      "unique_name": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi",
+      "name": "RUSLANTARGETGROUP2",
+      "title": "RUSLANTARGETGROUP2",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "kafka.endpoint",
+          "view_target_type": "kafka.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "left_operand": "$input.description$",
+              "operator": "ne",
+              "right_operand": "TEST"
+            }
+          ]
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
+  "variables": {
+    "variable_01gojFF4KunsS3KW5CUUFz2UAdhZqPRIl": {
+      "unique_name": "variable_01gojFF4KunsS3KW5CUUFz2UAdhZqPRIl",
+      "schema_id": "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f",
+      "properties": {
+        "value": null,
+        "scope": "global",
+        "name": "RUSLAN_USER_GLOBAL_TABLE_2",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    },
+    "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J": {
+      "unique_name": "variable_1CFu0XzWSTMVXZo58IQX1vdbq4J",
+      "properties": {
+        "value": -20,
+        "scope": "global",
+        "name": "-12",
+        "type": "datatype.integer"
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f": {
+      "unique_name": "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSLAN_USER_TABLETYPE",
+      "description": "RUSLAN_USER_TABLETYPE",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "is_required": true,
+          "name": "Boolean",
+          "title": "Boolean",
+          "type": "boolean"
+        },
+        {
+          "is_required": true,
+          "name": "Number",
+          "title": "Number",
+          "type": "integer"
+        },
+        {
+          "is_required": true,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
