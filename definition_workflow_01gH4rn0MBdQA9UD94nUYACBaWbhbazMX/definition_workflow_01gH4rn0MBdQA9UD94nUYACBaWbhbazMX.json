@@ -43,9 +43,7 @@
         "type": "workflow.sub_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "continue_on_failure": false,
           "display_name": "RUSLANCHILD_1",
-          "input": {},
           "target": {
             "execute_on_this_target_group": true,
             "target_group_id": "target_group_01gIX9Hd9LDQvjAZBBc1N7FEKTNkRB0xV"
@@ -59,117 +57,7 @@
       "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
     ]
   },
-  "triggers": {
-    "triggerevent_01gHbYAqpIzyXPGecn0sWcLqImxym53Sl": {
-      "workflow_id": "definition_workflow_01gH4rn0MBdQA9UD94nUYACBaWbhbazMX",
-      "name": "Event",
-      "title": "",
-      "lowercase_name": "event.event",
-      "type": "event",
-      "base_type": "trigger",
-      "ref_id": "event_01GSD8L7SQcWNDaJRR2evMsFJKLa2K5NP",
-      "version": "1.0.0",
-      "disabled": false,
-      "unique_name": "triggerevent_01gHbYAqpIzyXPGecn0sWcLqImxym53Sl",
-      "object_type": "triggerevent"
-    },
-    "triggerschedule_01gHbwQ8FaiXr1LqyCTtyMwmDuEBO1eQu": {
-      "workflow_id": "definition_workflow_01gH4rn0MBdQA9UD94nUYACBaWbhbazMX",
-      "name": "Scheduler",
-      "title": "",
-      "lowercase_name": "schedule.scheduler",
-      "type": "schedule",
-      "base_type": "trigger",
-      "ref_id": "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt",
-      "version": "1.0.0",
-      "disabled": false,
-      "unique_name": "triggerschedule_01gHbwQ8FaiXr1LqyCTtyMwmDuEBO1eQu",
-      "object_type": "triggerschedule"
-    }
-  },
-  "events": {
-    "event_01GSD8L7SQcWNDaJRR2evMsFJKLa2K5NP": {
-      "name": "RUSLAN_USER_KAFKA_EVENT",
-      "title": "RUSLAN_USER_KAFKA_EVENT",
-      "description": "121",
-      "type": "kafka.event",
-      "base_type": "event",
-      "object_type": "event",
-      "target_id": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
-      "version": "1.0.0",
-      "properties": {
-        "conditions": [
-          {
-            "left_operand": "$output.message$",
-            "operator": "ne",
-            "right_operand": "test"
-          }
-        ],
-        "description": "121",
-        "display_name": "RUSLAN_USER_KAFKA_EVENT",
-        "target_id": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
-        "title": "RUSLAN_USER_KAFKA_EVENT",
-        "topic_name": "RUSLAN_USER"
-      },
-      "unique_name": "event_01GSD8L7SQcWNDaJRR2evMsFJKLa2K5NP"
-    }
-  },
-  "schedules": {
-    "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt": {
-      "unique_name": "schedule_01GSCBuZXKypNFWwRPugwd1OWizqcNJnt",
-      "name": "RUSLAN_USER_CALENDAR",
-      "description": "1212",
-      "type": "basic.schedule",
-      "base_type": "schedule",
-      "properties": {
-        "calendar": "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ",
-        "timezone": "US/Pacific",
-        "starttime": "02:02",
-        "interval_hours": 6,
-        "interval_minutes": 0,
-        "number_of_times": 2,
-        "display_name": "RUSLAN_USER_CALENDAR",
-        "description": "1212"
-      },
-      "version": "1.0.0",
-      "object_type": "schedule"
-    }
-  },
-  "calendars": {
-    "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ": {
-      "unique_name": "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ",
-      "name": "RUSLAN_USER_TEST",
-      "title": "RUSLAN_USER_TEST",
-      "description": "1212",
-      "schema_id": "01gFpz1WQudCFVPXo7gXEOVOt37b8eJgM",
-      "base_type": "calendar",
-      "type": "calendar.datelist",
-      "properties": {
-        "date_list": [
-          "2019-01-12"
-        ]
-      },
-      "version": "1.0.0",
-      "object_type": "calendar_datelist"
-    }
-  },
   "targets": {
-    "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz": {
-      "unique_name": "definition_target_01GScyg8lNxD3tu5TQa2W20dSSqqhlPiz",
-      "name": "RUSLAN_USER_INTERNAL_KAFKA",
-      "title": "RUSLAN_USER_INTERNAL_KAFKA",
-      "type": "kafka.endpoint",
-      "base_type": "target",
-      "object_type": "definition_target",
-      "properties": {
-        "disable_certificate_validation": false,
-        "display_name": "RUSLAN_USER_INTERNAL_KAFKA",
-        "host": "10.99.102.152",
-        "no_runtime_user": true,
-        "port": 9092,
-        "ssl_enable": false
-      }
-    },
     "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt": {
       "unique_name": "definition_target_01gNeIUMOh4ff06w39t6u46cezXQZ1FUt",
       "name": "gcp-tar",
