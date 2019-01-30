@@ -1,0 +1,166 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01gQqULNsTX9LadeKIQIywFZMBF1hij6k",
+    "name": "Jan30 -Ruslan",
+    "title": "Jan30 -Ruslan",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Jan30 -Ruslan",
+      "favorite": false,
+      "target": {
+        "target_type": "target.demo_endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01gQqVi8Ph4ftugXbFB3IkifllPOdwHBA",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "source_array": "$global.variable_01gQqsoNtV0nJTOmtvoiEXbPRxTrGX2Q4.global.variable_01gQqsoNtV0nJTOmtvoiEXbPRxTrGX2Q4$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01gQqW63SD1ThNN5Wu4T57wUXUd1RbMpV",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "To Upper",
+          "source": "$global.variable_01gojFF4KunsS3KW5CUUFz2UAdhZqPRIl.global.variable_01gojFF4KunsS3KW5CUUFz2UAdhZqPRIl[0].Number$"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_01gQqsoNtV0nJTOmtvoiEXbPRxTrGX2Q4": {
+      "unique_name": "variable_01gQqsoNtV0nJTOmtvoiEXbPRxTrGX2Q4",
+      "schema_id": "tabletype_01gQqPRTTK3BTdTgGSf41iFkUBgoHuD4Q",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "Boolean": false,
+              "Decimal": 1
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": true,
+              "Decimal": 2
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "Jan30-RuslanTable-Global",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    },
+    "variable_01gojFF4KunsS3KW5CUUFz2UAdhZqPRIl": {
+      "unique_name": "variable_01gojFF4KunsS3KW5CUUFz2UAdhZqPRIl",
+      "schema_id": "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "Boolean": false,
+              "Decimal": 1
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": true,
+              "Decimal": 2
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "RUSLAN_USER_GLOBAL_TABLE_2",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f": {
+      "unique_name": "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSLAN_USER_TABLETYPE",
+      "description": "RUSLAN_USER_TABLETYPE",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "is_required": true,
+          "name": "Number",
+          "title": "Number",
+          "type": "integer"
+        },
+        {
+          "is_required": true,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        },
+        {
+          "is_required": true,
+          "name": "Boolean",
+          "title": "Boolean",
+          "type": "boolean"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_01gQqPRTTK3BTdTgGSf41iFkUBgoHuD4Q": {
+      "unique_name": "tabletype_01gQqPRTTK3BTdTgGSf41iFkUBgoHuD4Q",
+      "data_type": "datatype.tabletype",
+      "display_name": "latestTableType-RUSLAN",
+      "description": "latestTableType-RUSLAN",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "is_required": true,
+          "name": "Boolean",
+          "title": "Boolean",
+          "type": "boolean"
+        },
+        {
+          "is_required": true,
+          "maximum": 20,
+          "minimum": 1,
+          "name": "Decimal",
+          "title": "Decimal",
+          "type": "number"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
