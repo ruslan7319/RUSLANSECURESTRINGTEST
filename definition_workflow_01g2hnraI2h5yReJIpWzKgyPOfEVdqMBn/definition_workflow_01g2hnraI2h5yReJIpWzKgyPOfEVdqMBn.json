@@ -11,6 +11,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
+      "depends_on": "CC",
       "display_name": "TriggerParent-Ruslan",
       "favorite": false,
       "target": {
@@ -31,49 +32,7 @@
         "properties": {
           "continue_on_failure": false,
           "display_name": "Sleep",
-          "sleep_interval": 1
-        },
-        "object_type": "definition_activity"
-      },
-      {
-        "unique_name": "definition_activity_01gEEDzTHqrpodCqp3V2c1JGFDYbcMDL5",
-        "name": "Get CloudCenter Context",
-        "title": "Get CloudCenter Context",
-        "type": "ccs.get_cloud_context",
-        "base_type": "activity",
-        "properties": {
-          "action_id": "82",
-          "action_timeout": 180,
-          "cc_configuration": {
-            "execute_action": "on_vm",
-            "reboot_vm": false,
-            "resource_mappings": [
-              {
-                "applied_to": {
-                  "app_ids": [
-                    {
-                      "id": "31",
-                      "name": "CentOS 6.x"
-                    }
-                  ]
-                },
-                "resource_type": "app_profile"
-              }
-            ],
-            "sync_vm": false,
-            "wf_availability_type": "lifecycle"
-          },
-          "cc_run_id": "1",
-          "continue_on_failure": false,
-          "display_name": "Get CloudCenter Context",
-          "runtime_user": {
-            "override_target_runtime_user": false,
-            "target_default": true
-          },
-          "target": {
-            "override_workflow_target": true,
-            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
-          }
+          "sleep_interval": 2
         },
         "object_type": "definition_activity"
       },
@@ -98,19 +57,6 @@
     ]
   },
   "triggers": {
-    "triggerevent_01g2KrzMBrlELmPjF54odXDuGCCcN5G1B": {
-      "workflow_id": "definition_workflow_01g2hnraI2h5yReJIpWzKgyPOfEVdqMBn",
-      "name": "ChildEvent_Trigger",
-      "title": "",
-      "lowercase_name": "event.childevent_trigger",
-      "type": "event",
-      "base_type": "trigger",
-      "ref_id": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI",
-      "version": "1.0.0",
-      "disabled": true,
-      "unique_name": "triggerevent_01g2KrzMBrlELmPjF54odXDuGCCcN5G1B",
-      "object_type": "triggerevent"
-    },
     "triggerevent_01g2hvmDDUxU2hKlsUJkRi6bOWnZYsJEL": {
       "workflow_id": "definition_workflow_01g2hnraI2h5yReJIpWzKgyPOfEVdqMBn",
       "name": "ParentEventTrigger",
@@ -124,18 +70,18 @@
       "unique_name": "triggerevent_01g2hvmDDUxU2hKlsUJkRi6bOWnZYsJEL",
       "object_type": "triggerevent"
     },
-    "triggerschedule_01g2KpGW0aR7z3SRtfKnf9EMVyhKLdnEU": {
-      "workflow_id": "definition_workflow_01g2hnraI2h5yReJIpWzKgyPOfEVdqMBn",
-      "name": "ChildScheduler_Triger",
+    "triggerevent_01gr7lDALfv8ZBi4OUqK47PIw0d0wbVDg": {
+      "workflow_id": "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28",
+      "name": "Child Event Trigger",
       "title": "",
-      "lowercase_name": "schedule.childscheduler_triger",
-      "type": "schedule",
+      "lowercase_name": "event.child_event_trigger",
+      "type": "event",
       "base_type": "trigger",
-      "ref_id": "schedule_01KBjKYZRJmNAt314RbP8EHM4gTsL26FJ",
+      "ref_id": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI",
       "version": "1.0.0",
       "disabled": false,
-      "unique_name": "triggerschedule_01g2KpGW0aR7z3SRtfKnf9EMVyhKLdnEU",
-      "object_type": "triggerschedule"
+      "unique_name": "triggerevent_01gr7lDALfv8ZBi4OUqK47PIw0d0wbVDg",
+      "object_type": "triggerevent"
     },
     "triggerschedule_01g2hUfinvppwMEFom7lZUj2hGcguPBVz": {
       "workflow_id": "definition_workflow_01g2hnraI2h5yReJIpWzKgyPOfEVdqMBn",
@@ -148,6 +94,19 @@
       "version": "1.0.0",
       "disabled": false,
       "unique_name": "triggerschedule_01g2hUfinvppwMEFom7lZUj2hGcguPBVz",
+      "object_type": "triggerschedule"
+    },
+    "triggerschedule_01gr7Nk2iMrU8N8DfEwPZtdqpoyB8tXmo": {
+      "workflow_id": "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28",
+      "name": "Child -Scheduler Trigger",
+      "title": "",
+      "lowercase_name": "schedule.child_-scheduler_trigger",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_1BWt5qFRrejesl69jHUxAiaAv2g",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01gr7Nk2iMrU8N8DfEwPZtdqpoyB8tXmo",
       "object_type": "triggerschedule"
     }
   },
@@ -203,29 +162,29 @@
       "properties": {
         "calendar": "calendar_datelist_01GSC5pc2qcK2cLhekQeJxQcF5DpOJPuQ",
         "timezone": "US/Pacific",
-        "starttime": "02:02",
+        "starttime": "13:15",
         "interval_hours": 6,
         "interval_minutes": 0,
-        "number_of_times": 2,
+        "number_of_times": 1,
         "display_name": "RUSLAN_USER_CALENDAR",
         "description": "1212"
       },
       "version": "1.0.0",
       "object_type": "schedule"
     },
-    "schedule_01KBjKYZRJmNAt314RbP8EHM4gTsL26FJ": {
-      "unique_name": "schedule_01KBjKYZRJmNAt314RbP8EHM4gTsL26FJ",
-      "name": "Ramya - 1 min",
+    "schedule_1BWt5qFRrejesl69jHUxAiaAv2g": {
+      "unique_name": "schedule_1BWt5qFRrejesl69jHUxAiaAv2g",
+      "name": "Ruslan",
       "type": "basic.schedule",
       "base_type": "schedule",
       "properties": {
         "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
-        "timezone": "America/Chicago",
-        "starttime": "11:07",
+        "timezone": "US/Pacific",
+        "starttime": "10:42",
         "interval_hours": 0,
-        "interval_minutes": 2,
-        "number_of_times": 2,
-        "display_name": "Ramya - 1 min",
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "Ruslan",
         "description": ""
       },
       "version": "1.0.0",
@@ -238,12 +197,12 @@
       "name": "RUSLAN_USER_TEST",
       "title": "RUSLAN_USER_TEST",
       "description": "1212",
-      "schema_id": "01GH1xuKuWxihuDGFy3nOnossfQ8o7AAo",
+      "schema_id": "1BU8Xjcndu6MCk7aWmmENQFKFwP",
       "base_type": "calendar",
       "type": "calendar.datelist",
       "properties": {
         "date_list": [
-          "2019-01-12"
+          "2019-01-28"
         ]
       },
       "version": "1.0.0",
@@ -284,7 +243,49 @@
       }
     }
   },
-  "atomic_workflows": [
-    "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28"
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28",
+        "name": "TriggerChild_Ruslan",
+        "title": "TriggerChild_Ruslan",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "TriggerChild_Ruslan",
+          "favorite": false,
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01g2hzGrKqzyIVXKzasnOoxrIlYY2pP5l",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "sleep_interval": 1
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
   ]
 }
