@@ -1,0 +1,239 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01gr9UEJJEUItGqe7NQtVB16Fgb6btLjn",
+    "name": "TriggerParent-Ruslan",
+    "title": "TriggerParent-Ruslan",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "depends_on": "CC",
+      "display_name": "TriggerParent-Ruslan",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01gr9UheArWwNI6d7j68NyJYto8uJhm1O",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01gr9UklY84R4xDqvsvtZG9aE9nTbm8bS",
+        "name": "TriggerChild_Ruslan",
+        "title": "TriggerChild_Ruslan",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "TriggerChild_Ruslan",
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01grLUw0lAjUjjhEyZZshDrVI1LnDxLpY",
+        "name": "Add Cloud Account",
+        "title": "Add Cloud Account",
+        "type": "ccs.add_cloud_account",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Add Cloud Account",
+          "kube_account_token": false,
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01g24jG93hgnvKqhyHg8yZCzWkoRK5ubJ"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerevent_01gr7lDALfv8ZBi4OUqK47PIw0d0wbVDg": {
+      "workflow_id": "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28",
+      "name": "Child Event Trigger",
+      "title": "",
+      "lowercase_name": "event.child_event_trigger",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerevent_01gr7lDALfv8ZBi4OUqK47PIw0d0wbVDg",
+      "object_type": "triggerevent"
+    },
+    "triggerschedule_01gr7Nk2iMrU8N8DfEwPZtdqpoyB8tXmo": {
+      "workflow_id": "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28",
+      "name": "Child -Scheduler Trigger",
+      "title": "",
+      "lowercase_name": "schedule.child_-scheduler_trigger",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_1BWt5qFRrejesl69jHUxAiaAv2g",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01gr7Nk2iMrU8N8DfEwPZtdqpoyB8tXmo",
+      "object_type": "triggerschedule"
+    }
+  },
+  "events": {
+    "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI": {
+      "name": "RUSLANKAFKAEVENT",
+      "title": "RUSLANKAFKAEVENT",
+      "type": "kafka.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "version": "1.0.0",
+      "properties": {
+        "target_id": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+        "title": "RUSLANKAFKAEVENT",
+        "topic_name": "mytopic"
+      },
+      "unique_name": "event_01ffKzVosiSGFQ9ebKKuYpdDpo6eqa6aI"
+    }
+  },
+  "schedules": {
+    "schedule_1BWt5qFRrejesl69jHUxAiaAv2g": {
+      "unique_name": "schedule_1BWt5qFRrejesl69jHUxAiaAv2g",
+      "name": "Ruslan",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "US/Pacific",
+        "starttime": "10:42",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "Ruslan",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "targets": {
+    "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2": {
+      "unique_name": "definition_target_01ffKXu2OJTf6SYFpIP1bSmOCNjSBrnl2",
+      "name": "RUSLAN-INTERNALKAFKA",
+      "title": "RUSLAN-INTERNALKAFKA",
+      "type": "kafka.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "RUSLAN-INTERNALKAFKA",
+        "host": "10.111.54.53",
+        "no_runtime_user": true,
+        "port": 9092,
+        "ssl_enable": false
+      }
+    },
+    "definition_target_01g24jG93hgnvKqhyHg8yZCzWkoRK5ubJ": {
+      "unique_name": "definition_target_01g24jG93hgnvKqhyHg8yZCzWkoRK5ubJ",
+      "name": "RG CC External Target",
+      "title": "RG CC External Target",
+      "type": "ccsuite.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01g24h2YTDttAvRrQUZnWvy212cRKjQq9",
+        "description": "test 1211",
+        "disable_certificate_validation": false,
+        "display_name": "RG CC External Target",
+        "host": "35.197.67.81",
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01g24h2YTDttAvRrQUZnWvy212cRKjQq9": {
+      "unique_name": "definition_runtime_user_01g24h2YTDttAvRrQUZnWvy212cRKjQq9",
+      "name": "RG CC External user - test",
+      "title": "RG CC External user - test",
+      "type": "runtime_user.ccs_explicit_user",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "description": "212121212 test",
+        "display_name": "RG CC External user - test"
+      }
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01g2hYTnLkqh5YcIfzXyqyzdr7x5qRc28",
+        "name": "TriggerChild_Ruslan",
+        "title": "TriggerChild_Ruslan",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "TriggerChild_Ruslan",
+          "favorite": false,
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01g2hzGrKqzyIVXKzasnOoxrIlYY2pP5l",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "sleep_interval": 1
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
