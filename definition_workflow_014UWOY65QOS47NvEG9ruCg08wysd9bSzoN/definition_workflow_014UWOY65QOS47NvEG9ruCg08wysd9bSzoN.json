@@ -1,0 +1,107 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_014UWOY65QOS47NvEG9ruCg08wysd9bSzoN",
+    "name": "NEXTG-10706 child",
+    "title": "NEXTG-10706 child",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "atomic_group": "NEWGROUP",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "display_name": "NEXTG-10706 child",
+      "favorite": false,
+      "target": {
+        "target_type": "kafka.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_014UWP8KMKKUN3mWxd8NpZZ5nf7bnPlUegU",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_014UX4VMLI5T55HjVsMeYxjSPasmnlWKOgY",
+        "name": "Insert into Table via JDBC",
+        "title": "Insert into Table via JDBC",
+        "type": "corejava.insert_via_jdbc",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Insert into Table via JDBC",
+          "runtime_user": {
+            "override_target_runtime_user": true,
+            "runtime_user_id": "definition_runtime_user_1BXSqIaG9ZPLaowuHdNVhlyQ1zj"
+          },
+          "sql_query": "select * from test",
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_1BXSkGrPFDlmlrCAFH48etwlBFs"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_1BXSkGrPFDlmlrCAFH48etwlBFs": {
+      "unique_name": "definition_target_1BXSkGrPFDlmlrCAFH48etwlBFs",
+      "name": "JDBC SQL",
+      "title": "JDBC SQL",
+      "type": "corejava.jdbc_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "database": "testdb",
+        "dbtype": "sqlserver",
+        "default_runtime_user_id": "definition_runtime_user_1BXSh6JXD5awju2WbD9LLvT2kN1",
+        "display_name": "JDBC SQL",
+        "ignore_certificate_errors": true,
+        "port": 1433,
+        "server": "cpo-2016-sql17e.tidalsoft.local"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_1BXSh6JXD5awju2WbD9LLvT2kN1": {
+      "unique_name": "definition_runtime_user_1BXSh6JXD5awju2WbD9LLvT2kN1",
+      "name": "JDBC SQL",
+      "title": "JDBC SQL",
+      "type": "runtime_user.database_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "JDBC SQL"
+      }
+    },
+    "definition_runtime_user_1BXSqIaG9ZPLaowuHdNVhlyQ1zj": {
+      "unique_name": "definition_runtime_user_1BXSqIaG9ZPLaowuHdNVhlyQ1zj",
+      "name": "JDBC mysQL",
+      "title": "JDBC mysQL",
+      "type": "runtime_user.database_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "JDBC mysQL"
+      }
+    }
+  }
+}
