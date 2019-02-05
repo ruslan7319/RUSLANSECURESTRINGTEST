@@ -1,0 +1,83 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01gxzvA4pGuZLqOyrJTftDfkcIvWEpgu1",
+    "name": "TriggerParent-Ruslan",
+    "title": "TriggerParent-Ruslan",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "depends_on": "CC",
+      "display_name": "TriggerParent-Ruslan",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi",
+          "run_on_all_targets": false,
+          "selected_target_types": [
+            "kafka.endpoint"
+          ],
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_first_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "ne",
+                "left_operand": "$targetgroup.kafka endpoint.input.description$",
+                "right_operand": "1"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01gxzvQZFNyhFK7DJ1BBFFs6890NeniC4",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 2
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "target_groups": {
+    "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi": {
+      "unique_name": "target_group_1CcXqVuheBn7PRifaAAFNDtrwMi",
+      "name": "RUSLANTARGETGROUP2",
+      "title": "RUSLANTARGETGROUP2",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "kafka.endpoint",
+          "view_target_type": "kafka.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "left_operand": "$input.description$",
+              "operator": "ne",
+              "right_operand": "TEST"
+            }
+          ]
+        }
+      ],
+      "object_type": "target_group"
+    }
+  }
+}
