@@ -1,0 +1,84 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_014V18O3T66HD3FW3ivZ4285XEUsv4sFpys",
+    "name": "RUSLAN_EMPTY_TABLE",
+    "title": "RUSLAN_EMPTY_TABLE",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "tabletype_014V18F25GUTK219hREbPxLh2dFl4tbtNuf",
+        "properties": {
+          "scope": "local",
+          "name": "LcoalTable",
+          "type": "datatype.table"
+        },
+        "unique_name": "variable_workflow_014V19E6DWD817mdW73PthLlQi6WZUpZvnm",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RUSLAN_EMPTY_TABLE",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_014V19R24VQKV2OzqPyvYcY3fo8ZVq7iHLq",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "source_array": "$workflow.definition_workflow_014V18O3T66HD3FW3ivZ4285XEUsv4sFpys.local.variable_workflow_014V19E6DWD817mdW73PthLlQi6WZUpZvnm$"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "table_types": {
+    "tabletype_014V18F25GUTK219hREbPxLh2dFl4tbtNuf": {
+      "unique_name": "tabletype_014V18F25GUTK219hREbPxLh2dFl4tbtNuf",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSAN_EMPTY_TABLE",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "is_required": true,
+          "maximum": 20,
+          "minimum": 1,
+          "name": "Integer",
+          "title": "Integer",
+          "type": "integer"
+        },
+        {
+          "is_required": true,
+          "maxLength": 20,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
