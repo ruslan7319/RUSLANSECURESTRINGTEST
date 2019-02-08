@@ -1,0 +1,273 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_014WQ2F9Y4VPP2CUGMvC9m3NepKphHpXY4w",
+    "name": "JIRA WORKFLOW - RUSLAN",
+    "title": "JIRA WORKFLOW - RUSLAN",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "43",
+          "scope": "input",
+          "name": "Sprint",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_014WVSSXDFNKI2QJoBHdt9qdTCZ6wtNJ7SV",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "YES",
+          "scope": "input",
+          "name": "ALL",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_014WQMIR6RQ722BFYSjA4iNUANsRnxILUtV",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Next Gen Po",
+          "scope": "input",
+          "name": "project",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_014WV06JZUA9Q2oVr4fo94q5Q28zQcFWw5g",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "rkholyav",
+          "scope": "input",
+          "name": "semarche",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_014WV23E18TM60jzJAoNUyKNFmxdgpKiqVt",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "In Progress",
+          "scope": "input",
+          "name": "Status",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_014WVA3LJ94KQ4Pzpd1t8SAERZWJGqtRXIk",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "JIRA WORKFLOW - RUSLAN",
+      "favorite": false,
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_014WQ1TA8J2FQ3XNhqwtvx1U7bqQjU3uKlP",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_014WQLIGDXOC62yBPJuW4AjfV1akqzLGdhi",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "display_name": "Condition Block"
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_014WQLIJTZ6M76hwn7ex5I6UHoLgBfkLA6O",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_014WQ2F9Y4VPP2CUGMvC9m3NepKphHpXY4w.input.variable_workflow_014WQMIR6RQ722BFYSjA4iNUANsRnxILUtV$",
+                "operator": "eqi",
+                "right_operand": "YES"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_014WQSQE8BMG77mtABzFUKv9ESYPbdF69cm",
+                "name": "HTTP Request",
+                "title": "ALL",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json;charset=UTF-8"
+                    },
+                    {
+                      "name": "Authorization",
+                      "value": "Basic bXJhZ3VwYXQ6R292aW5kYWghMzU1"
+                    }
+                  ],
+                  "display_name": "ALL",
+                  "method": "GET",
+                  "relative_url": "/rest/api/2/search?jql=project=\"Next Gen Po\" AND status=\"Blocked\" AND issuetype=\"Bug\"",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  },
+                  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_014WW19V4Z46G5Ikk8CjdEfjG8tgWyhu1QH",
+                "name": "Read Table from JSON",
+                "title": "Read Table from JSON",
+                "type": "corejava.read_table_from_json",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Read Table from JSON",
+                  "jsonpath_query": "$activity.definition_activity_014WQSQE8BMG77mtABzFUKv9ESYPbdF69cm.output.response_body$",
+                  "persist_output": false,
+                  "populate_columns": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_014WQLIKWOZ3D5gxYDAQvs7kAWzNIdjy854",
+            "name": "Condition Branch",
+            "title": "input is ALL ",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_014WQ2F9Y4VPP2CUGMvC9m3NepKphHpXY4w.input.variable_workflow_014WQMIR6RQ722BFYSjA4iNUANsRnxILUtV$",
+                "operator": "ne",
+                "right_operand": "YES"
+              },
+              "continue_on_failure": false,
+              "display_name": "input is ALL "
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_014WS49QZKQDP09uylbel5tppQQ1G2hSF4L",
+                "name": "HTTP Request",
+                "title": "NOT ALL",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "NOT ALL",
+                  "method": "GET",
+                  "relative_url": "/rest/api/2/search?jql=project=\"$workflow.definition_workflow_014WQ2F9Y4VPP2CUGMvC9m3NepKphHpXY4w.input.variable_workflow_014WV06JZUA9Q2oVr4fo94q5Q28zQcFWw5g$\" AND Assignee=\"$workflow.definition_workflow_014WQ2F9Y4VPP2CUGMvC9m3NepKphHpXY4w.input.variable_workflow_014WV23E18TM60jzJAoNUyKNFmxdgpKiqVt$\" AND issuetype=\"Bug\" AND  status=\"$workflow.definition_workflow_014WQ2F9Y4VPP2CUGMvC9m3NepKphHpXY4w.input.variable_workflow_014WVA3LJ94KQ4Pzpd1t8SAERZWJGqtRXIk$\" AND sprint=\"$workflow.definition_workflow_014WQ2F9Y4VPP2CUGMvC9m3NepKphHpXY4w.input.variable_workflow_014WVSSXDFNKI2QJoBHdt9qdTCZ6wtNJ7SV$\"",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  },
+                  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_014WQ3M0NTJ6T57pRHRB29ESjoD4rsFVzRh",
+        "name": "HTTP Request",
+        "title": "Login",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Content-Type",
+              "value": ""
+            }
+          ],
+          "display_name": "Login",
+          "method": "POST",
+          "relative_url": "/login.jsp?os_username=rkholyav\u0026os_password=%2517WayNo%2427\u0026os_destination=\u0026user_role=\u0026atl_token=\u0026login=Log+In",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_014WQ1TA8J2FQ3XNhqwtvx1U7bqQjU3uKlP"
+          },
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_014WQ1TA8J2FQ3XNhqwtvx1U7bqQjU3uKlP": {
+      "unique_name": "definition_target_014WQ1TA8J2FQ3XNhqwtvx1U7bqQjU3uKlP",
+      "name": "JIRA-RUSLAN",
+      "title": "JIRA-RUSLAN",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "12",
+        "disable_certificate_validation": true,
+        "display_name": "JIRA-RUSLAN",
+        "host": "jira-eng-sjc1.cisco.com",
+        "no_runtime_user": true,
+        "path": "/jira",
+        "protocol": "https"
+      }
+    }
+  }
+}
