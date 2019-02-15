@@ -7,43 +7,6 @@
     "base_type": "workflow",
     "variables": [
       {
-        "schema_id": "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f",
-        "properties": {
-          "value": [
-            {
-              "column_data": {
-                "Boolean": false,
-                "Number": 1,
-                "String": "1"
-              }
-            },
-            {
-              "column_data": {
-                "Boolean": true,
-                "Number": 2,
-                "String": "2"
-              }
-            }
-          ],
-          "scope": "input",
-          "name": "inputTable",
-          "type": "datatype.table"
-        },
-        "unique_name": "variable_workflow_015074J4MEI3C6dkN5KMb8iP5DPzYmfFQvd",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "YES",
-          "scope": "input",
-          "name": "ALL",
-          "type": "datatype.string"
-        },
-        "unique_name": "variable_workflow_014WQMIR6RQ722BFYSjA4iNUANsRnxILUtV",
-        "object_type": "variable_workflow"
-      },
-      {
         "schema_id": "datatype.string",
         "properties": {
           "value": "Next Gen Po",
@@ -95,6 +58,43 @@
           "type": "datatype.table"
         },
         "unique_name": "variable_workflow_014XGZ5IVWRQT79Fn0DLokE27y19QtKMnCK",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_01GSbahtMFuQ3g1uFdo4RpLqIgRBnjp7f",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Boolean": false,
+                "Number": 1,
+                "String": "1"
+              }
+            },
+            {
+              "column_data": {
+                "Boolean": true,
+                "Number": 2,
+                "String": "2"
+              }
+            }
+          ],
+          "scope": "input",
+          "name": "inputTable",
+          "type": "datatype.table"
+        },
+        "unique_name": "variable_workflow_015074J4MEI3C6dkN5KMb8iP5DPzYmfFQvd",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "YES",
+          "scope": "input",
+          "name": "ALL",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_014WQMIR6RQ722BFYSjA4iNUANsRnxILUtV",
         "object_type": "variable_workflow"
       }
     ],
@@ -528,6 +528,12 @@
       "columns": [
         {
           "is_required": true,
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        },
+        {
+          "is_required": true,
           "name": "Boolean",
           "title": "Boolean",
           "type": "boolean"
@@ -537,12 +543,6 @@
           "name": "Number",
           "title": "Number",
           "type": "integer"
-        },
-        {
-          "is_required": true,
-          "name": "String",
-          "title": "String",
-          "type": "string"
         }
       ],
       "base_type": "datatype",
