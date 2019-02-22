@@ -1,0 +1,147 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0159BXQ8S7J5K4sSSG0CWXda1Die7lYYJu1",
+    "name": "RUSLAN-TABLE TEST",
+    "title": "RUSLAN-TABLE TEST",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RUSLAN-TABLE TEST",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0159BY16IHLMJ7jvv4oa2gW6GVOaMEtUN6N",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0159CBFFRUW320M0OqaZdJ4E9F4o0n3PrBo",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "source_array": "$global.variable_0159C27PMI1MJ7WJDLwR6tJR5XojdcC198B.global.variable_0159C27PMI1MJ7WJDLwR6tJR5XojdcC198B$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_0159CBR50L1TH283c28km5fXcpEj4oY3ADa",
+            "name": "Add Row to Table",
+            "title": "Add Row to Table",
+            "type": "core.addrowtotable",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Add Row to Table",
+              "input_table": "$global.variable_0159CB1ILJU5F42o5TKjYImmlhAkdD6S0F2.global.variable_0159CB1ILJU5F42o5TKjYImmlhAkdD6S0F2$",
+              "row": [
+                {
+                  "key": "defaultrow",
+                  "type": "string",
+                  "value": "1212"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_0159C27PMI1MJ7WJDLwR6tJR5XojdcC198B": {
+      "unique_name": "variable_0159C27PMI1MJ7WJDLwR6tJR5XojdcC198B",
+      "schema_id": "tabletype_0159BXGOXDWSL1weqfWXzTDBwzuRxjJr6WJ",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "defaultrow": "TYPE_TABLE_1"
+            }
+          },
+          {
+            "column_data": {
+              "defaultrow": "TYPE_TABLE_1_1"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "RUSLAN_NEW_TYPE_TABLE_1",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    },
+    "variable_0159CB1ILJU5F42o5TKjYImmlhAkdD6S0F2": {
+      "unique_name": "variable_0159CB1ILJU5F42o5TKjYImmlhAkdD6S0F2",
+      "schema_id": "tabletype_0159BXGOXDWSL1weqfWXzTDBwzuRxjJr6WJ",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "defaultrow": "TABLE_2"
+            }
+          },
+          {
+            "column_data": {
+              "defaultrow": "TABLE2_2"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "RUSLAN_NEW_TYPE_TABLE_2",
+        "type": "datatype.table"
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_0159BXGOXDWSL1weqfWXzTDBwzuRxjJr6WJ": {
+      "unique_name": "tabletype_0159BXGOXDWSL1weqfWXzTDBwzuRxjJr6WJ",
+      "data_type": "datatype.tabletype",
+      "display_name": "RUSLAN_NEW_TYPE",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
+      "columns": [
+        {
+          "is_required": true,
+          "maxLength": 20,
+          "name": "defaultrow",
+          "title": "defaultrow",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
