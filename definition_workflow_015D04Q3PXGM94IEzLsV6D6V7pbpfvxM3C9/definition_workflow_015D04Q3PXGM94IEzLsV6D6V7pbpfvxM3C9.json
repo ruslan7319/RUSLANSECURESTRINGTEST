@@ -1,0 +1,159 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_015D04Q3PXGM94IEzLsV6D6V7pbpfvxM3C9",
+    "name": "test",
+    "title": "test",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "test",
+      "favorite": false,
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_015EJ2J0XVS0B3GBmrUsI6ocfwuqcOkPyFd",
+        "execute_on_workflow_target": true
+      },
+      "timeout": 3600
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_015D04QK9KHLV5ApovL0wVabf3KLnSLIqGD",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "To Upper",
+          "source": "as"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_015KF7WNF08SC486Iodf3P0v7J5dnUku1qi",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script",
+          "script": "print('hello')"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_015KFBVYY4DFY3jzKCMJGkD5Gj1Q5gR2B4w",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query",
+          "input_json": "{\n  \"id\": \"015KFBVYCL5TS1ewIG0PKWPExufUdrr7zgE\",\n  \"schema_id\": \"01gFQ5UQuoLxaLiyNhFnwBKjgQZfY4hOX\",\n  \"adapter_id\": \"01gFpyH0S2ZNJ4hRezFUFB46QK7iT4MB0\",\n  \"name\": \"JSONPath Query\",\n  \"title\": \"JSONPath Query\",\n  \"type\": \"corejava.jsonpathquery\",\n  \"base_type\": \"activity\",\n  \"properties\": {\n    \"action_timeout\": 180,\n    \"continue_on_failure\": false,\n    \"display_name\": \"JSONPath Query\"\n  },\n  \"invalid_properties\": {\n    \"input_json\": \"required missing\",\n    \"jsonpath_queries\": \"required missing\"\n  },\n  \"valid\": false,\n  \"subworkflow_valid\": false,\n  \"created_on\": \"2019-03-07T16:42:23Z\",\n  \"updated_on\": \"2019-03-07T16:42:23Z\",\n  \"created_by\": \"9\",\n  \"updated_by\": \"9\",\n  \"status\": \"updated\",\n  \"unique_name\": \"definition_activity_015KFBVYY4DFY3jzKCMJGkD5Gj1Q5gR2B4w\"\n}",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "Id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_015KFNI85RGLV7aXUURGdV8ET5aFbTxQd32",
+        "name": "JSONPath Query",
+        "title": "JSONPath Query",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "JSONPath Query",
+          "input_json": "{\n  \"id\": \"015KFBVYCL5TS1ewIG0PKWPExufUdrr7zgE\",\n  \"schema_id\": \"01gFQ5UQuoLxaLiyNhFnwBKjgQZfY4hOX\",\n  \"adapter_id\": \"01gFpyH0S2ZNJ4hRezFUFB46QK7iT4MB0\",\n  \"name\": \"JSONPath Query\",\n  \"title\": \"JSONPath Query\",\n  \"type\": \"corejava.jsonpathquery\",\n  \"base_type\": \"activity\",\n  \"properties\": {\n    \"action_timeout\": 180,\n    \"continue_on_failure\": false,\n    \"display_name\": \"JSONPath Query\"\n  },\n  \"invalid_properties\": {\n    \"input_json\": \"required missing\",\n    \"jsonpath_queries\": \"required missing\"\n  },\n  \"valid\": false,\n  \"subworkflow_valid\": false,\n  \"created_on\": \"2019-03-07T16:42:23Z\",\n  \"updated_on\": \"2019-03-07T16:42:23Z\",\n  \"created_by\": \"9\",\n  \"updated_by\": \"9\",\n  \"status\": \"updated\",\n  \"unique_name\": \"definition_activity_015KFBVYY4DFY3jzKCMJGkD5Gj1Q5gR2B4w\"\n}",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "Id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_015KFSJFOBQRN6n5UDvp3NbLOXQ95WMvUlz",
+        "name": "HTTP Request",
+        "title": "HTTP Request",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "HTTP Request",
+          "method": "GET",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_015KGVVUZDIST6E29FagXoOXkdU3wlPS3VQ",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script",
+          "script": "print('test')"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_015EJ2J0XVS0B3GBmrUsI6ocfwuqcOkPyFd": {
+      "unique_name": "definition_target_015EJ2J0XVS0B3GBmrUsI6ocfwuqcOkPyFd",
+      "name": "CA HTTP",
+      "title": "CA HTTP",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "TEST",
+        "disable_certificate_validation": false,
+        "display_name": "CA HTTP",
+        "host": "www.google.com",
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    }
+  }
+}
