@@ -1,0 +1,192 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_015ZMO9T0579Q5pWOvHD1uZ89Eejx1ADaHZ",
+    "name": "workflowRuslan",
+    "title": "workflowRuslan",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "workflowRuslan",
+      "favorite": false,
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_015OQC4X6WO7I1xpd2g12ldT4PRYiHx3O9I",
+        "execute_on_workflow_target": true
+      },
+      "timeout": 3600
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_015ZMULB77FXI25HKsEfWH0aBlfkfuZkL6f",
+        "name": "Get Access Token",
+        "title": "Get Access Token",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "atomic": {
+            "atomic_group": "Cisco DNA Center",
+            "is_atomic": true
+          },
+          "continue_on_failure": false,
+          "delete_workflow_instance": false,
+          "display_name": "Get Access Token",
+          "favorite": false,
+          "input": {},
+          "target": {
+            "execute_on_this_target": false,
+            "no_target": false,
+            "override_workflow_target": false,
+            "target_id": "definition_target_01GL3E0xdaYZXuqMRV4Hh7u3Q0xvhcQBc",
+            "target_type": "015DULNZPRPXL75j7VwzfjmQQp6RgAHt294",
+            "use_workflow_target": true
+          },
+          "timeout": 3600,
+          "workflow_id": "definition_workflow_0152CDDIM1G7G72w1hEDpy9uFxIaCdAGcEi"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_015ZMOKE99RM77irQRmkaIXT6utc1Qmlu2T",
+        "name": "Get Device Config for all Devices - New",
+        "title": "Get Device Config for all Devices - New",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "atomic": {
+            "atomic_group": "Cisco DNA Center",
+            "is_atomic": true
+          },
+          "continue_on_failure": false,
+          "delete_workflow_instance": false,
+          "display_name": "Get Device Config for all Devices - New",
+          "favorite": false,
+          "input": {},
+          "target": {
+            "execute_on_this_target": false,
+            "no_target": false,
+            "override_workflow_target": false,
+            "target_id": "definition_target_01GL3E0xdaYZXuqMRV4Hh7u3Q0xvhcQBc",
+            "target_type": "015DULNZPRPXL75j7VwzfjmQQp6RgAHt294",
+            "use_workflow_target": true
+          },
+          "timeout": 3600,
+          "workflow_id": "definition_workflow_015VZZAV3E9LQ2Gjc5SVIP1CfVMQgEuGx2G"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_015ZMPU46G3922lKcJcbSuDfOwyxi68Jbxt",
+        "name": "Get Modules",
+        "title": "Get Modules",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "atomic": {
+            "atomic_group": "Cisco DNA Center",
+            "is_atomic": true
+          },
+          "continue_on_failure": false,
+          "delete_workflow_instance": false,
+          "description": "This atomic workflow retrieves existing information of modules in a device.",
+          "display_name": "Get Modules",
+          "favorite": false,
+          "input": {
+            "variable_workflow_01gR5yn6J3HMyeZdEktAu3FDJ9FthZBMK": "NULL",
+            "variable_workflow_01gR6dZLKf1jAynHdHkGa5CTUKLzoIW3w": "$activity.definition_activity_015ZMOKE99RM77irQRmkaIXT6utc1Qmlu2T.output.variable_workflow_015W03YH1UWU9303LRiFTvU37P0mSkAOVPS[0].deviceId$"
+          },
+          "target": {
+            "target_type": "015DULNZPRPXL75j7VwzfjmQQp6RgAHt294",
+            "use_workflow_target": true
+          },
+          "timeout": 3600,
+          "workflow_id": "definition_workflow_01gR5rVE732zylVoNsrkGg4aIplcnd4er"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_015OQC4X6WO7I1xpd2g12ldT4PRYiHx3O9I": {
+      "unique_name": "definition_target_015OQC4X6WO7I1xpd2g12ldT4PRYiHx3O9I",
+      "name": "ND_DNAC-tar",
+      "title": "ND_DNAC-tar",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_015OQBU9J0IFJ4ojliMAD5v8tr0F3WEJzlg",
+        "disable_certificate_validation": true,
+        "display_name": "ND_DNAC-tar",
+        "host": "10.122.6.51",
+        "no_runtime_user": false,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01GL3E0xdaYZXuqMRV4Hh7u3Q0xvhcQBc": {
+      "unique_name": "definition_target_01GL3E0xdaYZXuqMRV4Hh7u3Q0xvhcQBc",
+      "name": " vCenter Server - aus-65esxvc-01 ",
+      "title": " vCenter Server - aus-65esxvc-01 ",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01GL392jsVQARIRHOoEdfDPzDJzzwh12H",
+        "disable_certificate_validation": true,
+        "display_name": " vCenter Server - aus-65esxvc-01 ",
+        "host": "10.88.102.41",
+        "no_runtime_user": false,
+        "protocol": "https"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_015OQBU9J0IFJ4ojliMAD5v8tr0F3WEJzlg": {
+      "unique_name": "definition_runtime_user_015OQBU9J0IFJ4ojliMAD5v8tr0F3WEJzlg",
+      "name": "ND-DNAC-user",
+      "title": "ND-DNAC-user",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "ND-DNAC-user"
+      }
+    },
+    "definition_runtime_user_01GL392jsVQARIRHOoEdfDPzDJzzwh12H": {
+      "unique_name": "definition_runtime_user_01GL392jsVQARIRHOoEdfDPzDJzzwh12H",
+      "name": "aus-65esxvc-01 user",
+      "title": "aus-65esxvc-01 user",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "aus-65esxvc-01 user"
+      }
+    }
+  },
+  "variables": {
+    "variable_01gqxid4jgGlfDDvAH3b5EoSsUusGw4YF": {
+      "unique_name": "variable_01gqxid4jgGlfDDvAH3b5EoSsUusGw4YF",
+      "properties": {
+        "value": "X-Auth-Token",
+        "scope": "global",
+        "name": "DNACAuthHeader",
+        "type": "datatype.string"
+      },
+      "object_type": "variable"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01gR5rVE732zylVoNsrkGg4aIplcnd4er",
+    "definition_workflow_015VZZAV3E9LQ2Gjc5SVIP1CfVMQgEuGx2G",
+    "definition_workflow_0152CDDIM1G7G72w1hEDpy9uFxIaCdAGcEi"
+  ]
+}
