@@ -14,7 +14,7 @@
           "name": "localone",
           "type": "datatype.string"
         },
-        "unique_name": "variable_116NMJQ6GSTL82k1n2Il2dT1Yr6xY8IvjYJ",
+        "unique_name": "variable_workflow_016NNHVIKJG403quNPyt6OsMq8Wz5EiuD4Q",
         "object_type": "variable_workflow"
       },
       {
@@ -25,7 +25,7 @@
           "name": "local2",
           "type": "datatype.string"
         },
-        "unique_name": "variable_016NMK4EVY49U1kbYMQK7x090Zmyd03Pzkg",
+        "unique_name": "variable_workflow_016NNHVIKJJYJ1pnK4UcfHY8KUrCVjPoYko",
         "object_type": "variable_workflow"
       }
     ],
@@ -71,7 +71,7 @@
       }
     ],
     "categories": [
-      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+      "category_01FzsThUQ3yXAswxOItEqLAIiGLEPlIt0"
     ]
   },
   "variables": {
