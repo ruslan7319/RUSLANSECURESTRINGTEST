@@ -14,7 +14,7 @@
           "name": "localone",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016NNDKTT8GHW49VBXCV7A4kze6X2GK4LFD",
+        "unique_name": "variable_116NMJQ6GSTL82k1n2Il2dT1Yr6xY8IvjYJ",
         "object_type": "variable_workflow"
       },
       {
@@ -25,7 +25,7 @@
           "name": "local2",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016NNDSCUVGX51k0xS3LCzqG236SluAJ8oj",
+        "unique_name": "variable_016NMK4EVY49U1kbYMQK7x090Zmyd03Pzkg",
         "object_type": "variable_workflow"
       }
     ],
