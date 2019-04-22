@@ -1,0 +1,76 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_016NN6NT7VVT12f6dZEaAURCIZCr7xA734L",
+    "name": "RUSLANEXTG-10936",
+    "title": "RUSLANEXTG-10936",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "RUSLANEXTG-10936",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_016NN7KRF929A6mjPCKMBIbiFv3SkGxG5o2",
+        "name": "Add Cloud Account",
+        "title": "Add Cloud Account",
+        "type": "ccs.add_cloud_account",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "cloud_family": "Openstack",
+          "continue_on_failure": false,
+          "display_name": "Add Cloud Account",
+          "openstack_name": "$global.variable_016NMJQ6GSTL82k1n2Il2dT1Yr6xY8IvjYJ.global.variable_016NMJQ6GSTL82k1n2Il2dT1Yr6xY8IvjYJ$",
+          "openstack_password": "$global.variable_016NMK4EVY49U1kbYMQK7x090Zmyd03PzkI.global.variable_016NMK4EVY49U1kbYMQK7x090Zmyd03PzkI$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01f9IQgvQRJv3tvlqwR145Bbrye0toH0Q"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_016NMJQ6GSTL82k1n2Il2dT1Yr6xY8IvjYJ": {
+      "unique_name": "variable_016NMJQ6GSTL82k1n2Il2dT1Yr6xY8IvjYJ",
+      "properties": {
+        "value": "test",
+        "scope": "global",
+        "name": "LoginName",
+        "type": "datatype.string"
+      },
+      "object_type": "variable"
+    },
+    "variable_016NMK4EVY49U1kbYMQK7x090Zmyd03PzkI": {
+      "unique_name": "variable_016NMK4EVY49U1kbYMQK7x090Zmyd03PzkI",
+      "properties": {
+        "value": "12121",
+        "scope": "global",
+        "name": "password",
+        "type": "datatype.string"
+      },
+      "object_type": "variable"
+    }
+  }
+}
