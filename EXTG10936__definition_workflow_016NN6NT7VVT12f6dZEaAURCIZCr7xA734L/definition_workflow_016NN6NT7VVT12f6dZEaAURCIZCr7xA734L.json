@@ -10,18 +10,18 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "12",
-          "scope": "local",
+          "scope": "glob",
           "name": "localone",
           "type": "datatype.string"
         },
-        "unique_name": "variable_workflow_016NNHVIKJG403quNPyt6OsMq8Wz5EiuD4Q",
+        "unique_name": "variable_116NMJQ6GSTL82k1n2Il2dT1Yr6xY8IvjYJ",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "local",
+          "scope": "local2",
           "name": "local2",
           "type": "datatype.string"
         },
