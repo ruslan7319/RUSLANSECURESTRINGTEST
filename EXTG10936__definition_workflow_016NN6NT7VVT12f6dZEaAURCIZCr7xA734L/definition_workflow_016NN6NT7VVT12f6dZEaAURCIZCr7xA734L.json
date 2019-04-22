@@ -5,7 +5,30 @@
     "title": "RUSLANEXTG-10936",
     "type": "generic.workflow",
     "base_type": "workflow",
-    "variables": null,
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "12",
+          "scope": "local",
+          "name": "localone",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_016NNDKTT8GHW49VBXCV7A4kze6X2GK4LFD",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "local2",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_016NNDSCUVGX51k0xS3LCzqG236SluAJ8oj",
+        "object_type": "variable_workflow"
+      }
+    ],
     "properties": {
       "atomic": {
         "is_atomic": false
