@@ -38,10 +38,24 @@
       "display_name": "HearBeat-Test",
       "favorite": false,
       "target": {
-        "execute_on_target_group": false,
-        "execute_on_workflow_target": false,
-        "no_target": true,
-        "specify_on_workflow_start": false
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_017ESW14UG4IK2P8wmOziBYYZDAKYRum5ZN",
+          "run_on_all_targets": false,
+          "selected_target_types": [
+            "web-service.endpoint"
+          ],
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "ne",
+                "left_operand": "$targetgroup.web-service endpoint.input.description$$targetgroup.web-service endpoint.input.host$",
+                "right_operand": "tesrt"
+              }
+            ]
+          }
+        }
       }
     },
     "object_type": "definition_workflow",
@@ -202,6 +216,24 @@
         "port": 9092,
         "ssl_enable": false
       }
+    }
+  },
+  "target_groups": {
+    "target_group_017ESW14UG4IK2P8wmOziBYYZDAKYRum5ZN": {
+      "unique_name": "target_group_017ESW14UG4IK2P8wmOziBYYZDAKYRum5ZN",
+      "name": "HTTP-TARGET",
+      "title": "HTTP-TARGET",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
     }
   },
   "variables": {
@@ -464,7 +496,7 @@
               {
                 "schema_id": "datatype.integer",
                 "properties": {
-                  "value": 5,
+                  "value": 478,
                   "scope": "static",
                   "name": "Intr",
                   "type": "datatype.integer",
@@ -476,7 +508,7 @@
               {
                 "schema_id": "datatype.integer",
                 "properties": {
-                  "value": 10,
+                  "value": 5,
                   "scope": "static",
                   "name": "IntStatic2",
                   "type": "datatype.integer",
@@ -503,168 +535,64 @@
             "object_type": "definition_workflow",
             "actions": [
               {
-                "unique_name": "definition_activity_0178YINXTNNR45uTtS9u9b2B2fOlz3kydWb",
-                "name": "Parallel Block",
-                "title": "Parallel Block",
-                "type": "logic.parallel",
+                "unique_name": "definition_activity_017C8FR3FE5I06htcjjDeR7CgPmzDdPdQTp",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
                 "base_type": "activity",
                 "properties": {
                   "continue_on_failure": false,
-                  "display_name": "Parallel Block"
+                  "display_name": "While Loop"
                 },
                 "object_type": "definition_activity",
                 "blocks": [
                   {
-                    "unique_name": "definition_activity_0178YINZV9CHK5u7BpYHnMmJa5UwWsD8yGm",
-                    "name": "Parallel Branch",
-                    "title": "Parallel Branch",
-                    "type": "logic.parallel_block",
+                    "unique_name": "definition_activity_017C8FR5KX26O0GEJkM0RKIrSpyuYxtDcuT",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
                     "base_type": "activity",
                     "properties": {
-                      "display_name": "Parallel Branch"
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0177AIKCQJVHW1tDGIR9NGva1t2H2vSmLmz$",
+                        "operator": "lt",
+                        "right_operand": 10
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch"
                     },
                     "object_type": "definition_activity",
                     "actions": [
                       {
-                        "unique_name": "definition_activity_0177AIPYU5OZO4izA0KKCOimPIR6YAwy9M9",
-                        "name": "While Loop",
-                        "title": "While Loop",
-                        "type": "logic.while",
+                        "unique_name": "definition_activity_017C8FXC852NO6vqR9gIlmfZNRfiDNPhG5c",
+                        "name": "Sleep",
+                        "title": "Sleep",
+                        "type": "core.sleep",
                         "base_type": "activity",
                         "properties": {
                           "continue_on_failure": false,
-                          "display_name": "While Loop"
+                          "display_name": "Sleep",
+                          "sleep_interval": 1
                         },
-                        "object_type": "definition_activity",
-                        "blocks": [
-                          {
-                            "unique_name": "definition_activity_0177AIQ0IXGHC5McTGwXMMQwK8xML7nUMD0",
-                            "name": "Condition Branch",
-                            "title": "Condition Branch",
-                            "type": "logic.condition_block",
-                            "base_type": "activity",
-                            "properties": {
-                              "condition": {
-                                "left_operand": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0178Z5JZMRJHK4Fx0Zp9AAdetj6cIjSmwO8$",
-                                "operator": "lt",
-                                "right_operand": 10
-                              },
-                              "continue_on_failure": false,
-                              "display_name": "Condition Branch"
-                            },
-                            "object_type": "definition_activity",
-                            "actions": [
-                              {
-                                "unique_name": "definition_activity_0177AJ9K8VR3S02QVrP90WWvdt3mWEMQzH6",
-                                "name": "Sleep",
-                                "title": "Sleep",
-                                "type": "core.sleep",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Sleep",
-                                  "sleep_interval": 5
-                                },
-                                "object_type": "definition_activity"
-                              },
-                              {
-                                "unique_name": "definition_activity_0177AJT7O7CC0438JwoTF4cuwZCWWlJQAkL",
-                                "name": "Set Variables",
-                                "title": "Set Variables",
-                                "type": "core.set_multiple_variables",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Set Variables",
-                                  "variables_to_update": [
-                                    {
-                                      "variable_to_update": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0178Z5JZMRJHK4Fx0Zp9AAdetj6cIjSmwO8$",
-                                      "variable_value_new": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0178Z5JZMRJHK4Fx0Zp9AAdetj6cIjSmwO8$ + 1"
-                                    }
-                                  ]
-                                },
-                                "object_type": "definition_activity"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "unique_name": "definition_activity_0178YIO0RB8GG5DDhXXYfGikGcBASCUDoeM",
-                    "name": "Parallel Branch",
-                    "title": "Parallel Branch",
-                    "type": "logic.parallel_block",
-                    "base_type": "activity",
-                    "properties": {
-                      "display_name": "Parallel Branch"
-                    },
-                    "object_type": "definition_activity",
-                    "actions": [
+                        "object_type": "definition_activity"
+                      },
                       {
-                        "unique_name": "definition_activity_0178YJ28RV2HO7WVKMDTsZ7oHxk7QHfLhds",
-                        "name": "While Loop",
-                        "title": "While Loop",
-                        "type": "logic.while",
+                        "unique_name": "definition_activity_017C8GKL38TZ01vDHfwjrUs5X1kSLvDJonq",
+                        "name": "Set Variables",
+                        "title": "Set Variables",
+                        "type": "core.set_multiple_variables",
                         "base_type": "activity",
                         "properties": {
                           "continue_on_failure": false,
-                          "display_name": "While Loop"
+                          "display_name": "Set Variables",
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0177AIKCQJVHW1tDGIR9NGva1t2H2vSmLmz$",
+                              "variable_value_new": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0177AIKCQJVHW1tDGIR9NGva1t2H2vSmLmz$+1"
+                            }
+                          ]
                         },
-                        "object_type": "definition_activity",
-                        "blocks": [
-                          {
-                            "unique_name": "definition_activity_0178YJ29K6WUC10qptohG0xOyT7GBdJWfu4",
-                            "name": "Condition Branch",
-                            "title": "Condition Branch",
-                            "type": "logic.condition_block",
-                            "base_type": "activity",
-                            "properties": {
-                              "condition": {
-                                "left_operand": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0177AIKCQJVHW1tDGIR9NGva1t2H2vSmLmz$",
-                                "operator": "lt",
-                                "right_operand": 10
-                              },
-                              "continue_on_failure": false,
-                              "display_name": "Condition Branch"
-                            },
-                            "object_type": "definition_activity",
-                            "actions": [
-                              {
-                                "unique_name": "definition_activity_0178YJ2BACWCW03XUPQxbreHqG84P2Ry84G",
-                                "name": "Sleep",
-                                "title": "Sleep",
-                                "type": "core.sleep",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Sleep",
-                                  "sleep_interval": 5
-                                },
-                                "object_type": "definition_activity"
-                              },
-                              {
-                                "unique_name": "definition_activity_0178YJ2CUHK3W6d5y5tWyus0dRKAm43Ndmf",
-                                "name": "Set Variables",
-                                "title": "Set Variables",
-                                "type": "core.set_multiple_variables",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Set Variables",
-                                  "variables_to_update": [
-                                    {
-                                      "variable_to_update": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0177AIKCQJVHW1tDGIR9NGva1t2H2vSmLmz$",
-                                      "variable_value_new": "$workflow.definition_workflow_0177AHBDFQ8501AvGEfLpDU2HvIQzYBLADg.static.variable_workflow_0177AIKCQJVHW1tDGIR9NGva1t2H2vSmLmz$ + 1"
-                                    }
-                                  ]
-                                },
-                                "object_type": "definition_activity"
-                              }
-                            ]
-                          }
-                        ]
+                        "object_type": "definition_activity"
                       }
                     ]
                   }
