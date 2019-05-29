@@ -9,6 +9,17 @@
       {
         "schema_id": "datatype.integer",
         "properties": {
+          "scope": "output",
+          "name": "output-value",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_017IYXA7NAQPH6blZk04j5V5RqGSKk3oKkX",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
           "value": 32,
           "scope": "input",
           "name": "SleepTime",
@@ -17,17 +28,6 @@
         },
         "unique_name": "variable_workflow_017IYXA7NBG8H4vKldvurSY2De0YaFCNQad",
         "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.integer",
-        "properties": {
-          "scope": "output",
-          "name": "output-value",
-          "type": "datatype.integer",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_017IYXA7NAQPH6blZk04j5V5RqGSKk3oKkX",
-        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -35,6 +35,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
+      "description": "ewrerqerqwerq",
       "display_name": "HearBeat-Test",
       "favorite": false,
       "target": {
