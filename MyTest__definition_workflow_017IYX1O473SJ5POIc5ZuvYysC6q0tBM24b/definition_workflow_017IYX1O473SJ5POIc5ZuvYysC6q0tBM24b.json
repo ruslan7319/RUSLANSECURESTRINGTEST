@@ -306,17 +306,6 @@
           {
             "schema_id": "datatype.integer",
             "properties": {
-              "scope": "output",
-              "name": "Output",
-              "type": "datatype.integer",
-              "description": "rerwer"
-            },
-            "unique_name": "variable_workflow_017IYX6ACZ10G4MbxsCwwJTLCiqaMPCzEjH",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.integer",
-            "properties": {
               "value": 20,
               "scope": "input",
               "name": "InputInteger",
@@ -324,6 +313,17 @@
               "description": "10"
             },
             "unique_name": "variable_workflow_017IYX6ACYNNR2NMrjCjoaskXa313v4svPj",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.integer",
+            "properties": {
+              "scope": "output",
+              "name": "Output",
+              "type": "datatype.integer",
+              "description": "rerwer"
+            },
+            "unique_name": "variable_workflow_017IYX6ACZ10G4MbxsCwwJTLCiqaMPCzEjH",
             "object_type": "variable_workflow"
           }
         ],
@@ -492,23 +492,23 @@
               {
                 "schema_id": "datatype.integer",
                 "properties": {
-                  "value": 478,
-                  "scope": "static",
-                  "name": "Intr",
-                  "type": "datatype.integer"
-                },
-                "unique_name": "variable_workflow_017IYX3II18ZA6q9rXaZkpbHSS5cmfqr311",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.integer",
-                "properties": {
                   "value": 5,
                   "scope": "static",
                   "name": "IntStatic2",
                   "type": "datatype.integer"
                 },
                 "unique_name": "variable_workflow_017IYX3II0RV02b4uATZ09NyXOpAf4UHFzY",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.integer",
+                "properties": {
+                  "value": 478,
+                  "scope": "static",
+                  "name": "Intr",
+                  "type": "datatype.integer"
+                },
+                "unique_name": "variable_workflow_017IYX3II18ZA6q9rXaZkpbHSS5cmfqr311",
                 "object_type": "variable_workflow"
               }
             ],
