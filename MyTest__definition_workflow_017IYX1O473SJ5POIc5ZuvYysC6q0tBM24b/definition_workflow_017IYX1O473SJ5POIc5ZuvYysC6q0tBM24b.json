@@ -11,8 +11,7 @@
         "properties": {
           "scope": "output",
           "name": "output-value",
-          "type": "datatype.integer",
-          "is_required": false
+          "type": "datatype.integer"
         },
         "unique_name": "variable_workflow_017IYXA7NAQPH6blZk04j5V5RqGSKk3oKkX",
         "object_type": "variable_workflow"
@@ -23,8 +22,7 @@
           "value": 32,
           "scope": "input",
           "name": "SleepTime",
-          "type": "datatype.integer",
-          "is_required": false
+          "type": "datatype.integer"
         },
         "unique_name": "variable_workflow_017IYXA7NBG8H4vKldvurSY2De0YaFCNQad",
         "object_type": "variable_workflow"
@@ -271,8 +269,7 @@
         ],
         "scope": "global",
         "name": "GlobalTable1",
-        "type": "datatype.table",
-        "is_required": false
+        "type": "datatype.table"
       },
       "object_type": "variable"
     }
@@ -282,6 +279,10 @@
       "unique_name": "tabletype_0177AGCOPZMJC3pFeCehhHYdjgBEutGo392",
       "data_type": "datatype.tabletype",
       "display_name": "MyTABLE",
+      "max_rows": 256,
+      "max_columns": 256,
+      "max_column_size": 1024,
+      "max_table_size": 26000,
       "columns": [
         {
           "name": "Number",
@@ -308,8 +309,7 @@
               "scope": "output",
               "name": "Output",
               "type": "datatype.integer",
-              "description": "rerwer",
-              "is_required": false
+              "description": "rerwer"
             },
             "unique_name": "variable_workflow_017IYX6ACZ10G4MbxsCwwJTLCiqaMPCzEjH",
             "object_type": "variable_workflow"
@@ -321,8 +321,7 @@
               "scope": "input",
               "name": "InputInteger",
               "type": "datatype.integer",
-              "description": "10",
-              "is_required": false
+              "description": "10"
             },
             "unique_name": "variable_workflow_017IYX6ACYNNR2NMrjCjoaskXa313v4svPj",
             "object_type": "variable_workflow"
@@ -496,8 +495,7 @@
                   "value": 478,
                   "scope": "static",
                   "name": "Intr",
-                  "type": "datatype.integer",
-                  "is_required": false
+                  "type": "datatype.integer"
                 },
                 "unique_name": "variable_workflow_017IYX3II18ZA6q9rXaZkpbHSS5cmfqr311",
                 "object_type": "variable_workflow"
@@ -508,8 +506,7 @@
                   "value": 5,
                   "scope": "static",
                   "name": "IntStatic2",
-                  "type": "datatype.integer",
-                  "is_required": false
+                  "type": "datatype.integer"
                 },
                 "unique_name": "variable_workflow_017IYX3II0RV02b4uATZ09NyXOpAf4UHFzY",
                 "object_type": "variable_workflow"
