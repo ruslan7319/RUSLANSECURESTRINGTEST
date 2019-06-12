@@ -1,0 +1,109 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_017PVY995KYAK11Pgt4DiYXbOYeCtkiCXnx",
+    "name": "XPATH",
+    "title": "XPATH",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "XPATH",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_017PVYD5TR8AA1MYJiM7ybUwRKXQg7QrAfC",
+        "name": "XPath Query",
+        "title": "XPath Query",
+        "type": "core.xpathquery",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "XPath Query",
+          "input_xml": "\u003c?xml version=\"1.0\" ?\u003e\n\u003cqueryResponse last=\"999\" first=\"0\" count=\"1076\" type=\"AccessPointDetails\" responseType=\"listEntityInstances\" requestUrl=\"https://63.231.220.90/webacs/api/v1/data/AccessPointDetails?.full=true\u0026amp;.maxResults=1000\" rootUrl=\"https://63.231.220.90/webacs/api/v1/data\"\u003e\n\u003centity dtoType=\"accessPointDetailsDTO\" type=\"AccessPointDetails\" url=\"https://63.231.220.90/webacs/api/v1/data/AccessPointDetails/3246763\"\u003e\n\u003caccessPointDetailsDTO displayName=\"3246763\" id=\"3246763\"\u003e\n\u003cadminStatus\u003eENABLE\u003c/adminStatus\u003e\n\u003capType\u003eAP3800P\u003c/apType\u003e\n\u003cclientCount_5GHz\u003e0\u003c/clientCount_5GHz\u003e\n\u003cmapLocation\u003edefault location\u003c/mapLocation\u003e\n\u003cmodel\u003eAIR-AP3802P-B-K9\u003c/model\u003e\n\u003cname\u003eMAR-1-HALL-AP12\u003c/name\u003e\n\u003creachabilityStatus\u003eUNREACHABLE\u003c/reachabilityStatus\u003e\n\u003cserialNumber\u003eFJC2215M46M\u003c/serialNumber\u003e\n\u003csoftwareVersion\u003e8.5.140.10\u003c/softwareVersion\u003e\n\u003cstatus\u003eCRITICAL\u003c/status\u003e\n\u003ctype\u003eUnifiedAp\u003c/type\u003e\n\u003ccdpNeighbors\u003e\n\u003ccdpNeighbor\u003e\n\u003ccapabilities\u003eSwitch IGMP \u003c/capabilities\u003e\n\u003cduplex\u003eFull Duplex\u003c/duplex\u003e\n\u003cinterfaceSpeed\u003e1Gbps\u003c/interfaceSpeed\u003e\n\u003clocalPort\u003e1\u003c/localPort\u003e\n\u003cneighborName\u003eMRT-3N-TorreyPines2-1.noc.ciscolive.com\u003c/neighborName\u003e\n\u003cneighborPort\u003eGigabitEthernet1/0/4\u003c/neighborPort\u003e\n\u003cplatform\u003ecisco WS-C3560CX-12PD-S\u003c/platform\u003e\n\u003cneighborIpAddress\u003e10.16.184.69\u003c/neighborIpAddress\u003e\n\u003c/cdpNeighbor\u003e\n\u003c/cdpNeighbors\u003e\n\u003cclientCount\u003e0\u003c/clientCount\u003e\n\u003cclientCount_2_4GHz\u003e0\u003c/clientCount_2_4GHz\u003e\n\u003cethernetMac\u003e78:72:5d:1d:5d:b4\u003c/ethernetMac\u003e\n\u003cipAddress\u003e10.16.160.173\u003c/ipAddress\u003e\n\u003clocationHeirarchy\u003eSystem Campus \u003e Marriott Marquis San Diego Marina \u003e 1st FL - Ground Level\u003c/locationHeirarchy\u003e\n\u003cmacAddress\u003e78:72:5d:1e:d6:40\u003c/macAddress\u003e\n\u003cunifiedApInfo\u003e\n\u003capCertType\u003e1\u003c/apCertType\u003e\n\u003capGroupName\u003eMarriott-Hallways\u003c/apGroupName\u003e\n\u003capStaticEnabled\u003e0\u003c/apStaticEnabled\u003e\n\u003cbootVersion\u003e1.1.2.4\u003c/bootVersion\u003e\n\u003ccapwapJoinTakenTime\u003e11600\u003c/capwapJoinTakenTime\u003e\n\u003ccontryCode\u003eUS\u003c/contryCode\u003e\n\u003cencryptionEnabled\u003efalse\u003c/encryptionEnabled\u003e\n\u003cflexConnectMode\u003efalse\u003c/flexConnectMode\u003e\n\u003ciosVersion\u003e8.5.140.10\u003c/iosVersion\u003e\n\u003clinkLatencyEnabled\u003efalse\u003c/linkLatencyEnabled\u003e\n\u003cmaintenanceMode\u003efalse\u003c/maintenanceMode\u003e\n\u003cpoeStatusEnum\u003eNORMAL\u003c/poeStatusEnum\u003e\n\u003cportNumber\u003e0\u003c/portNumber\u003e\n\u003cpowerInjectorState\u003e1\u003c/powerInjectorState\u003e\n\u003cpreStandardState\u003e0\u003c/preStandardState\u003e\n\u003cprimaryMwar\u003e9800-WLC-2\u003c/primaryMwar\u003e\n\u003crogueDetectionEnabled\u003etrue\u003c/rogueDetectionEnabled\u003e\n\u003csecondaryMwar\u003eWLC-8540-1\u003c/secondaryMwar\u003e\n\u003csshEnabled\u003etrue\u003c/sshEnabled\u003e\n\u003cstatisticsTimer\u003e180\u003c/statisticsTimer\u003e\n\u003ctelnetEnabled\u003efalse\u003c/telnetEnabled\u003e\n\u003cwlanProfiles\u003e\u003c/wlanProfiles\u003e\n\u003cwlanVlanMappings\u003e\u003c/wlanVlanMappings\u003e\n\u003capMode\u003e0\u003c/apMode\u003e\n\u003cpoeStatus\u003e4\u003c/poeStatus\u003e\n\u003cWIPSEnabled\u003e0\u003c/WIPSEnabled\u003e\n\u003c/unifiedApInfo\u003e\n\u003c/accessPointDetailsDTO\u003e\n\u003c/entity\u003e\n\u003c/queryResponse\u003e",
+          "xpath_queries": [
+            {
+              "xpath_query": "/queryResponse[1]/@count",
+              "xpath_query_name": "count",
+              "xpath_query_type": "string",
+              "xpath_query_type_format": ""
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_017T8FVQ8LCMX0lDLMUUhYjpyWAceRrfko6",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "source_array": "$global.variable_015IWS7RZNE0Z6J2rBTtjebD4JSkYC4aWkV.global.variable_015IWS7RZNE0Z6J2rBTtjebD4JSkYC4aWkV$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_017T8G4HK2U8V5NYsLSRM65fIO61Jr0xN3T",
+            "name": "To Upper",
+            "title": "To Upper",
+            "type": "core.string2upper",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "To Upper",
+              "source": "$activity.definition_activity_017T8FVQ8LCMX0lDLMUUhYjpyWAceRrfko6.input.source_array[@].Output$"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_015IWS7RZNE0Z6J2rBTtjebD4JSkYC4aWkV": {
+      "unique_name": "variable_015IWS7RZNE0Z6J2rBTtjebD4JSkYC4aWkV",
+      "schema_id": "tabletype_015HW0ZNDM5R77imTIlu5mTQthPvNLfmT8Q",
+      "properties": {
+        "scope": "global",
+        "name": "TN - GlobalTable",
+        "type": "datatype.table",
+        "is_required": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_015HW0ZNDM5R77imTIlu5mTQthPvNLfmT8Q": {
+      "unique_name": "tabletype_015HW0ZNDM5R77imTIlu5mTQthPvNLfmT8Q",
+      "data_type": "datatype.tabletype",
+      "display_name": "TN - TableString",
+      "columns": [
+        {
+          "maxLength": 100,
+          "name": "Output",
+          "title": "OutputString",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
