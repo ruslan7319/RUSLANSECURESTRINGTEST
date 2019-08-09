@@ -1,0 +1,639 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0198DX4FUC3595Xv04qNexXN4RPeCNmJw5p",
+    "name": "PartentWait",
+    "title": "PartentWait",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": false,
+          "scope": "local",
+          "name": "test",
+          "type": "datatype.boolean",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_0198DX72NG3IA4lbVuPSXYNzoNfqvU3okNJ",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "PartentWait",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_0198AN4AR9NR06y77LAZBuy0kOqlvCfSVh0",
+          "run_on_all_targets": false,
+          "selected_target_types": [
+            "amqp.endpoint",
+            "git.endpoint"
+          ],
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "ne",
+                "left_operand": "$targetgroup.amqp endpoint.input.description$",
+                "right_operand": "test"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0198DX7WKZRKW4S50Kiy18k6FpY64kHnwQK",
+        "name": "Wait For Event",
+        "title": "Wait For Event",
+        "type": "task.wait_for_event",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Wait For Event",
+          "event_info": {
+            "add_event": false,
+            "existing_event_info": {
+              "event_id": "$global.variable_0192E0GN8KV631FyhzX5KuTxeqetDtpw7mM.global.variable_0192E0GN8KV631FyhzX5KuTxeqetDtpw7mM$",
+              "override_event_criteria": false
+            },
+            "use_existing_event": true
+          },
+          "event_type": "kafka.event",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0198DX83G2FD64SJ3cKDrUTrNNPrugZd2TF",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 5
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0198DX8AHKCE45v7fCov8EbpllARFXn5vL6",
+        "name": "WaitforKafkaEvent",
+        "title": "WaitforKafkaEvent",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "WaitforKafkaEvent",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "no_target": true,
+            "override_workflow_target": false
+          },
+          "workflow_id": "definition_workflow_0198DX4RNCWQM7ghI2B10PdQVL9PuKbMTHX"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0198DX8G571S74lHdClW16ECWJKd9JUUQ23",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": true
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_0198DX8M5WUDV04GJ4lsJ479EVOU0AQ8mT1",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "",
+                "operator": "eq",
+                "right_operand": ""
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0198DX8RTPFIW0fqSBf1NrY2FhwAKqipaPO",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_0198DX8X46OXO6WjnVrAPAnlMaVd0ELuZuQ",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "",
+                        "operator": "eq",
+                        "right_operand": ""
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_0198DX96NAPY22vE18sIYdq5YNAVGuUvMcr",
+                        "name": "To Lower",
+                        "title": "To Lower",
+                        "type": "core.string2lower",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "To Lower",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_0198DX9CP1EAW4chdzVj2cG6aMeyQglktjD",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "",
+                "operator": "eq",
+                "right_operand": ""
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0198DX9IZAW1M5GyfVl51XCsRFAjlIER2O2",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "For Each",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_0198DX9UEHZ5O1BLKTV7488P0WW9B5J1vl6",
+                    "name": "To Lower",
+                    "title": "To Lower",
+                    "type": "core.string2lower",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Lower",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerevent_0198DX7BCE6OS5Tuc90wHQYGcEHCK8uXItP": {
+      "workflow_id": "definition_workflow_0198DX4FUC3595Xv04qNexXN4RPeCNmJw5p",
+      "name": "KafkaTrigger",
+      "title": "",
+      "lowercase_name": "event.kafkatrigger",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_0192CX4NUXADL4OjOGw5gjtSGExYOXsHfxu",
+      "version": "1.0.0",
+      "disabled": true,
+      "unique_name": "triggerevent_0198DX7BCE6OS5Tuc90wHQYGcEHCK8uXItP",
+      "object_type": "triggerevent"
+    },
+    "triggerevent_0198DX7EENXWJ2XmEz3EVP1fpAQZis2SJ89": {
+      "workflow_id": "definition_workflow_0198DX4FUC3595Xv04qNexXN4RPeCNmJw5p",
+      "name": "AMQPTrigger",
+      "title": "",
+      "lowercase_name": "event.amqptrigger",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_0192D8VUXGHKO6wVloScOQklfsWXObjNRcl",
+      "version": "1.0.0",
+      "disabled": true,
+      "unique_name": "triggerevent_0198DX7EENXWJ2XmEz3EVP1fpAQZis2SJ89",
+      "object_type": "triggerevent"
+    },
+    "triggerevent_0198DX7HIPBMH5EgVrJiIqpZqJ0IHQmZ1Ht": {
+      "workflow_id": "definition_workflow_0198DX4FUC3595Xv04qNexXN4RPeCNmJw5p",
+      "name": "Approver",
+      "title": "",
+      "lowercase_name": "event.approver",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_0192D6L63841F7gpuFqlhAegD190yIUFDiB",
+      "version": "1.0.0",
+      "disabled": true,
+      "unique_name": "triggerevent_0198DX7HIPBMH5EgVrJiIqpZqJ0IHQmZ1Ht",
+      "object_type": "triggerevent"
+    },
+    "triggerschedule_0198DX788A4XU6PsolJQLKzlaKfoiIrxSoB": {
+      "workflow_id": "definition_workflow_0198DX4FUC3595Xv04qNexXN4RPeCNmJw5p",
+      "name": "Scheudler",
+      "title": "",
+      "lowercase_name": "schedule.scheudler",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_0198AKM4A8IU00Gvtp2GzKfXluPcnFQX5yA",
+      "version": "1.0.0",
+      "disabled": true,
+      "unique_name": "triggerschedule_0198DX788A4XU6PsolJQLKzlaKfoiIrxSoB",
+      "object_type": "triggerschedule"
+    }
+  },
+  "events": {
+    "event_0192CX4NUXADL4OjOGw5gjtSGExYOXsHfxu": {
+      "name": "ExternalKafkaEvent",
+      "title": "ExternalKafkaEvent",
+      "type": "kafka.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_0192CWMNJN4DU5o4t33JurRoTk8Bbld99hb",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "ExternalKafkaEvent",
+        "target_id": "definition_target_0192CWMNJN4DU5o4t33JurRoTk8Bbld99hb",
+        "title": "ExternalKafkaEvent",
+        "topic_name": "newday1212A"
+      },
+      "unique_name": "event_0192CX4NUXADL4OjOGw5gjtSGExYOXsHfxu"
+    },
+    "event_0192D6L63841F7gpuFqlhAegD190yIUFDiB": {
+      "name": "Approver",
+      "title": "Approver",
+      "type": "approval_task.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.minimum_approvals$",
+          "operator": "eq",
+          "right_operand": 1
+        },
+        "display_name": "Approver",
+        "title": "Approver"
+      },
+      "unique_name": "event_0192D6L63841F7gpuFqlhAegD190yIUFDiB"
+    },
+    "event_0192D8VUXGHKO6wVloScOQklfsWXObjNRcl": {
+      "name": "AMQP Event",
+      "title": "AMQP Event",
+      "type": "amqp.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_0192D8CLZEU7X46x4HwUzKPZHVlAPjnJfGq",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.body$",
+          "operator": "eq",
+          "right_operand": "12"
+        },
+        "display_name": "AMQP Event",
+        "queue_name": "ry-queue",
+        "target_id": "definition_target_0192D8CLZEU7X46x4HwUzKPZHVlAPjnJfGq",
+        "title": "AMQP Event"
+      },
+      "unique_name": "event_0192D8VUXGHKO6wVloScOQklfsWXObjNRcl"
+    }
+  },
+  "schedules": {
+    "schedule_0198AKM4A8IU00Gvtp2GzKfXluPcnFQX5yA": {
+      "unique_name": "schedule_0198AKM4A8IU00Gvtp2GzKfXluPcnFQX5yA",
+      "name": "Scheduler",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "US/Pacific",
+        "starttime": "01:00",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "Scheduler",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "targets": {
+    "definition_target_0192CWMNJN4DU5o4t33JurRoTk8Bbld99hb": {
+      "unique_name": "definition_target_0192CWMNJN4DU5o4t33JurRoTk8Bbld99hb",
+      "name": "ExternalKafka",
+      "title": "ExternalKafka",
+      "type": "kafka.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "ExternalKafka",
+        "host": "10.88.38.124",
+        "no_runtime_user": true,
+        "port": 9092,
+        "ssl_enable": false
+      }
+    },
+    "definition_target_0192D8CLZEU7X46x4HwUzKPZHVlAPjnJfGq": {
+      "unique_name": "definition_target_0192D8CLZEU7X46x4HwUzKPZHVlAPjnJfGq",
+      "name": "AMQP Target",
+      "title": "AMQP Target",
+      "type": "amqp.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_0192D7KY8C6WP4NzIU6rhD0qO1CYupBSYwk",
+        "display_name": "AMQP Target",
+        "host": "10.88.38.124",
+        "ignore_certificate_errors": true,
+        "port": 5672,
+        "ssl_enabled": false,
+        "vhost": "/"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_0192D7KY8C6WP4NzIU6rhD0qO1CYupBSYwk": {
+      "unique_name": "definition_runtime_user_0192D7KY8C6WP4NzIU6rhD0qO1CYupBSYwk",
+      "name": "AMQP Keys",
+      "title": "AMQP Keys",
+      "type": "runtime_user.amqp_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "AMQP Keys",
+        "password": "*****",
+        "username": "*****"
+      }
+    }
+  },
+  "target_groups": {
+    "target_group_0198AN4AR9NR06y77LAZBuy0kOqlvCfSVh0": {
+      "unique_name": "target_group_0198AN4AR9NR06y77LAZBuy0kOqlvCfSVh0",
+      "name": "NewTargetGroup",
+      "title": "NewTargetGroup",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "amqp.endpoint",
+          "view_target_type": "amqp.endpoint",
+          "include_all_targets": true
+        },
+        {
+          "data_target_type": "git.endpoint",
+          "view_target_type": "git.endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
+  "variables": {
+    "variable_0192E0GN8KV631FyhzX5KuTxeqetDtpw7mM": {
+      "unique_name": "variable_0192E0GN8KV631FyhzX5KuTxeqetDtpw7mM",
+      "properties": {
+        "value": "0192CX4HZ4CN04W81vJcZtCL16ANPlNZZB7",
+        "scope": "global",
+        "name": "KafkaEventID",
+        "type": "datatype.string",
+        "is_required": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_0198DX4RNCWQM7ghI2B10PdQVL9PuKbMTHX",
+        "name": "WaitforKafkaEvent",
+        "title": "WaitforKafkaEvent",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "WaitforKafkaEvent",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": false,
+            "execute_on_workflow_target": false,
+            "no_target": true,
+            "specify_on_workflow_start": false
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_0198DX5U8PIP00pJmXPMyvR1NCmcP1VUGKc",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "skip_execution": false,
+              "sleep_interval": 5
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0198DX61YGROP0zPAqmKfPXf1qWvkLx4Qdb",
+            "name": "Wait For Event",
+            "title": "Wait For Event",
+            "type": "task.wait_for_event",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Wait For Event",
+              "event_info": {
+                "add_event": true,
+                "event_definition": {
+                  "conditions": {
+                    "left_operand": "$output.message$",
+                    "operator": "eq",
+                    "right_operand": "12"
+                  },
+                  "target_id": "definition_target_0192CWMNJN4DU5o4t33JurRoTk8Bbld99hb",
+                  "topic_name": "newday1212A"
+                }
+              },
+              "event_type": "kafka.event",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0198DX6AKB2NX3JnQYfzOMpWYMuxbYQjKwm",
+            "name": "SubSubWorkflow",
+            "title": "SubSubWorkflow",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "SubSubWorkflow",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": true,
+              "target": {
+                "no_target": true,
+                "override_workflow_target": false
+              },
+              "workflow_id": "definition_workflow_0198DX4YKG1QI4EfXwlitbqzZ0HEknJOwGp"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_0198DX6JOX5QO63jKVCF7W6t2cfIXhLtNzJ",
+            "name": "Wait For Event",
+            "title": "Wait For Event",
+            "type": "task.wait_for_event",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Wait For Event",
+              "event_info": {
+                "add_event": false,
+                "existing_event_info": {
+                  "event_id": "$global.variable_0192E0GN8KV631FyhzX5KuTxeqetDtpw7mM.global.variable_0192E0GN8KV631FyhzX5KuTxeqetDtpw7mM$",
+                  "override_event_criteria": false
+                },
+                "use_existing_event": true
+              },
+              "event_type": "kafka.event",
+              "skip_execution": true
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      },
+      "subworkflows": [
+        {
+          "workflow": {
+            "unique_name": "definition_workflow_0198DX4YKG1QI4EfXwlitbqzZ0HEknJOwGp",
+            "name": "SubSubWorkflow",
+            "title": "SubSubWorkflow",
+            "type": "generic.workflow",
+            "base_type": "workflow",
+            "variables": null,
+            "properties": {
+              "atomic": {
+                "is_atomic": false
+              },
+              "delete_workflow_instance": false,
+              "display_name": "SubSubWorkflow",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "specify_on_workflow_start": false,
+                "target_default": true
+              },
+              "target": {
+                "execute_on_target_group": false,
+                "execute_on_workflow_target": false,
+                "no_target": true,
+                "specify_on_workflow_start": false
+              }
+            },
+            "object_type": "definition_workflow",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0198DX5EBA98J3P6hSvmTffJXQR6xqolayM",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              }
+            ],
+            "categories": [
+              "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
