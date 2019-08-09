@@ -1,0 +1,79 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01988R1MLEVAX7OtWxJcEPeXerNjHAc6F1E",
+    "name": "Abhigyant Task Approval REquest",
+    "title": "Abhigyant Task Approval REquest",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Abhigyant Task Approval REquest",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01988RCU7RISU5tMXgcxRH0EEx7JYemPHHk",
+        "name": "Create Approval Request",
+        "title": "Create Approval Request",
+        "type": "task.approval_request",
+        "base_type": "activity",
+        "properties": {
+          "approval_choices": [
+            "Approve",
+            "Reject"
+          ],
+          "assignees": [
+            "aooperator@cisco.com",
+            "aotenantadmin@cisco.com"
+          ],
+          "continue_on_failure": false,
+          "display_name": "Create Approval Request",
+          "due_date": {
+            "is_relative_time": true,
+            "is_specified_date": false,
+            "relative_time": {
+              "duration": 15,
+              "time_units": "days"
+            },
+            "set_due_date": true
+          },
+          "expiration_date": {
+            "is_relative_time": true,
+            "is_specified_date": false,
+            "relative_time": {
+              "duration": 15,
+              "time_units": "days"
+            }
+          },
+          "expiration_status": "Expired",
+          "minimum_approvals": 2,
+          "priority": "high",
+          "skip_execution": false,
+          "subject_line": "Abhigyan Task",
+          "task_message": "Abhigyan Task",
+          "task_owner": "aotenantadmin@cisco.com",
+          "task_requestor": "aotenantadmin@cisco.com"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
