@@ -1,0 +1,65 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_019DGEM5PJO5U3ZxFIFD6lVHcYyzE69R2ou",
+    "name": "import",
+    "title": "import",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "import",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_019DGHBNMY8TV758Lt3oyVmK1A6gpwCMF3P",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_019DGEN36J8267Q1I1AvsNe2XKOHokfYBUF",
+        "name": "Completed",
+        "title": "Completed",
+        "type": "logic.completed",
+        "base_type": "activity",
+        "properties": {
+          "completion_type": "succeeded",
+          "display_name": "Completed"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_019DGHBNMY8TV758Lt3oyVmK1A6gpwCMF3P": {
+      "unique_name": "definition_target_019DGHBNMY8TV758Lt3oyVmK1A6gpwCMF3P",
+      "name": "TEAST",
+      "title": "TEAST",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "TEAST",
+        "host": "www.yahoo.com",
+        "no_runtime_user": true,
+        "protocol": "https",
+        "proxy_password": "*****",
+        "proxy_url": "http://172.21.45.52:8080",
+        "proxy_username": "Proxy1"
+      }
+    }
+  }
+}
