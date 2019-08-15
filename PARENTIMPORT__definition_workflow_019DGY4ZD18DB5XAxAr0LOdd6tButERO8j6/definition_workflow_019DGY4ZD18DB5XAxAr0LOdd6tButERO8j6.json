@@ -11,6 +11,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
+      "description": "password add",
       "display_name": "Parent",
       "runtime_user": {
         "override_target_runtime_user": false,
@@ -65,6 +66,7 @@
         "host": "www.yahoo.com",
         "no_runtime_user": true,
         "protocol": "https",
+        "proxy_password": "*****",
         "proxy_url": "http://172.21.45.52:8080",
         "proxy_username": "Proxy1"
       }
