@@ -1,0 +1,81 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_019DG37GCWCNS3cwx1hlwvCpuyHOkliCQeR",
+    "name": "import",
+    "title": "import",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "import",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "git.endpoint",
+        "target_id": "definition_target_019DG33UYD8977ljgPbz894fi0XqIgmqCjd",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_019DG3O3JIBYH7HyClIdGVD8i1IIBPhCR8t",
+        "name": "Completed",
+        "title": "Completed",
+        "type": "logic.completed",
+        "base_type": "activity",
+        "properties": {
+          "completion_type": "succeeded",
+          "display_name": "Completed"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_019DG33UYD8977ljgPbz894fi0XqIgmqCjd": {
+      "unique_name": "definition_target_019DG33UYD8977ljgPbz894fi0XqIgmqCjd",
+      "name": "GITTARGET",
+      "title": "GITTARGET",
+      "type": "git.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "branch": "master",
+        "default_runtime_user_id": "definition_runtime_user_01989M3JEW7573LKrFhLOjJ8yM1RG2Ockw6",
+        "description": "test",
+        "display_name": "GITTARGET",
+        "no_runtime_user": false,
+        "protocol": "https",
+        "repo": "api.github.com/repos/ruslan7319/RUSLANSECURESTRINGTEST",
+        "repo_type": "github",
+        "repo_version": "1"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01989M3JEW7573LKrFhLOjJ8yM1RG2Ockw6": {
+      "unique_name": "definition_runtime_user_01989M3JEW7573LKrFhLOjJ8yM1RG2Ockw6",
+      "name": "GitHup",
+      "title": "GitHup",
+      "type": "runtime_user.git_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "GitHup",
+        "password": "*****",
+        "username": "*****"
+      }
+    }
+  }
+}
