@@ -1,0 +1,147 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_019DGY4ZD18DB5XAxAr0LOdd6tButERO8j6",
+    "name": "Parent",
+    "title": "Parent",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Parent",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_019DGYDIB1WAX5cKDXapvkZgRalo270oEbf",
+        "name": "import",
+        "title": "import",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "import",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "execute_on_this_target": true,
+            "target_id": "definition_target_019DGHBNMY8TV758Lt3oyVmK1A6gpwCMF3P",
+            "target_type": "web-service.endpoint"
+          },
+          "workflow_id": "definition_workflow_019DGPGUBUXPX3Ml8KAkMwBNwYT5x1sK5F2"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_019DGHBNMY8TV758Lt3oyVmK1A6gpwCMF3P": {
+      "unique_name": "definition_target_019DGHBNMY8TV758Lt3oyVmK1A6gpwCMF3P",
+      "name": "TEAST",
+      "title": "TEAST",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "TEAST",
+        "host": "www.yahoo.com",
+        "no_runtime_user": true,
+        "protocol": "https",
+        "proxy_url": "http://172.21.45.52:8080",
+        "proxy_username": "Proxy1"
+      }
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_019DGPGUBUXPX3Ml8KAkMwBNwYT5x1sK5F2",
+        "name": "import",
+        "title": "import",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "import",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "target_id": "definition_target_019DGHBNMY8TV758Lt3oyVmK1A6gpwCMF3P",
+            "execute_on_workflow_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_019DGRCV2DP4L1xiuCIDry5bdwVivsQclBu",
+            "name": "HTTP Request",
+            "title": "HTTP Request",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "HTTP Request",
+              "method": "GET",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_019DGPI4TZFQ073NH2kxymJ8OLob37eLPkt",
+            "name": "Completed",
+            "title": "Completed",
+            "type": "logic.completed",
+            "base_type": "activity",
+            "properties": {
+              "completion_type": "succeeded",
+              "display_name": "Completed"
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
